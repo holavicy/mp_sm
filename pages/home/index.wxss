@@ -1,6 +1,6 @@
 /* pages/home/index.wxss */
 .home{
-  background-color:#E5E5E5;
+  background-color:#ffffff;
   width: 100vw;
   height: 100vh;
   margin-bottom: 98rpx;
