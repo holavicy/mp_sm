@@ -1,0 +1,4 @@
+<!--pages/invite/index.wxml-->
+<view class="invite">
+  <tabbar selectedIndex="1"></tabbar>
+</view>

@@ -1,0 +1,7 @@
+/* pages/home/index.wxss */
+.home{
+  background-color:#E5E5E5;
+  width: 100vw;
+  height: 100vh;
+  margin-bottom: 98rpx;
+}

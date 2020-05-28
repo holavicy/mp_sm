@@ -1,0 +1,4 @@
+<!--pages/my/index.wxml-->
+<view class="my">
+  <tabbar selectedIndex="2"></tabbar>
+</view>
