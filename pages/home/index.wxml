@@ -1,15 +1,23 @@
 <!--pages/home/index.wxml-->
 <view class="home">
-  <view class="goods-item" wx:for="{{goodsList}}">
-  <view class="image">
-    <image src="{{item.imageUrl}}"></image>
+<view class="search-wrapper">
+  <image src="../../images/search.png"></image>
+  <input placeholder="请输入产品名称"></input>
+</view>
+
+  <view class="goods-list">
+    <view class="goods-item" wx:for="{{goodsList}}">
+      <view class="image">
+        <image src="{{item.imageUrl}}"></image>
+      </view>
+      <view class="name">
+        {{item.name}}
+      </view>
+      <view class="time">
+        发布时间：{{item.time}}
+      </view>
+    </view>
   </view>
-  <view class="name">
-    {{item.name}}
-  </view>
-  <view class="time">
-    {{item.time}}
-  </view>
-  </view>
+
   <tabbar selectedIndex="0"></tabbar>
 </view>
