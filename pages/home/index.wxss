@@ -22,10 +22,15 @@
   width: 30rpx;
   height: 30rpx;
   margin: 0 8rpx 0 24rpx;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .search-wrapper input{
   font-size: 24rpx;
+  width: 200rpx;
+  flex-grow: 1;
+  flex-grow: 1;
 }
 
 .goods-list{

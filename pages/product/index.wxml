@@ -1,0 +1,12 @@
+<!--pages/product/index.wxml-->
+<view class="product">
+  <view class="title">{{goodsInfo.title}}</view>
+  <view class="time">发布时间：{{goodsInfo.time}}</view>
+  <view class="paragraph-wrapper">
+    <view class="paragraph-item" wx:for="{{goodsInfo.paragraphList}}" wx:key="index">
+      <view class="par-item-title">{{item.title}}</view>
+      <view class="par-item-content">{{item.content}}</view>
+      <image src="{{item.imageUrl}}" wx:if="{{item.imageUrl}}"></image>
+    </view>
+  </view>
+</view>

@@ -2,7 +2,8 @@
   "pages": [
     "pages/home/index",
     "pages/my/index",
-    "pages/invite/index"
+    "pages/invite/index",
+    "pages/product/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
