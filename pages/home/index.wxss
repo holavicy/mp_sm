@@ -4,6 +4,7 @@
   width: 100vw;
   height: 100vh;
   margin-bottom: 98rpx;
+  position: relative;
 }
 
 .search-wrapper{
@@ -76,4 +77,16 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.shop-cart{
+  position: fixed;
+  right: 24rpx;
+  bottom: 158rpx;
+}
+
+.shop-cart image{
+  width: 132rpx;
+  height: 132rpx;
+  display: block;
 }

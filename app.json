@@ -3,7 +3,8 @@
     "pages/home/index",
     "pages/my/index",
     "pages/invite/index",
-    "pages/product/index"
+    "pages/product/index",
+    "pages/webView/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
