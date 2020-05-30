@@ -1,14 +1,70 @@
 <!--pages/my/index.wxml-->
 <view class="my">
-  <view class="info">
-    <view class="info-left">
-      <view class="name">{{userInfo.name}}</view>
-      <view class="sub-info">离家在外，给你宠爱～</view>
-      <view class="jf-button">签到领积分</view>
+  <view class="wrapper">
+    <view class="info">
+      <view class="info-left">
+        <view class="name">{{userInfo.name}}</view>
+        <view class="sub-info">离家在外，给你宠爱～</view>
+        <navigator class="jf-button" url="/pages/signIn/index" hover-class="none">
+          <image src="../../images/qd.png"></image>
+          签到领积分
+        </navigator>
+      </view>
+      <image src="{{userInfo.imageUrl}}" class="user-img"></image>
     </view>
-    <image src="{{userInfo.imageUrl}}"></image>
+    <view class="jf">
+      <view class="left">
+        <image src="../../images/jf.png"></image>
+        <text>我的积分</text>
+      </view>
+      <view class="right">
+        <text>{{userInfo.jfNum}}</text>
+        <view class="arrow-right-jf"></view>
+      </view>
+    </view>
+    <view class="nav">
+    <navigator class="nav-item" url="/pages/myInfo/index" hover-class="none">
+      <view class="left">
+        <image src="../../images/info.png"></image>
+      </view>
+      <view class="right">
+        我的信息
+        <view class="arrow-right-nav"></view>
+      </view>
+    </navigator>
+    <navigator class="nav-item" url="/pages/myShare/index" hover-class="none">
+      <view class="left">
+        <image src="../../images/share.png"></image>
+      </view>
+      <view class="right">
+        我的推荐
+        <view class="arrow-right-nav"></view>
+      </view>
+    </navigator>
+    <navigator class="nav-item" url="/pages/officialAccounts/index" hover-class="none">
+      <view class="left">
+        <image src="../../images/gzgzh.png"></image>
+      </view>
+      <view class="right">
+        关注公众号
+        <view class="arrow-right-nav"></view>
+      </view>
+    </navigator>
+    <navigator target="miniProgram" 
+    class="nav-item"
+    appId="wx8049aa19b5f58456"
+    path="/pages/home/index" 
+    hover-class="none">
+      <view class="left">
+        <image src="../../images/kf.png"></image>
+      </view>
+      <view class="right">
+        我的客服
+        <view class="arrow-right-nav"></view>
+      </view>
+    </navigator>
+    </view>
   </view>
-  <view class="jf"></view>
-  <view class="nav"></view>
+
   <tabbar selectedIndex="2"></tabbar>
 </view>

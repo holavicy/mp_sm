@@ -4,7 +4,11 @@
     "pages/my/index",
     "pages/invite/index",
     "pages/product/index",
-    "pages/webView/index"
+    "pages/webView/index",
+    "pages/signIn/index",
+    "pages/myInfo/index",
+    "pages/myShare/index",
+    "pages/officialAccounts/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,5 +17,8 @@
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "navigateToMiniProgramAppIdList": [
+    "wx8049aa19b5f58456"
+  ]
 }
