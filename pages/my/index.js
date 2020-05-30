@@ -6,15 +6,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabbar:{}
+    userInfo: {
+      name:'陈明姣',
+      imageUrl:'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKzwARGeicV29Am0lCUzOWedKa8XCt916ib1edLibictupiaAxdfw8N0TOUEJjvDz0G88fRo4PfXtcjfdg/132',
+      jfNum:5000
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.hideHomeButton();
-    app.editTabbar();
   },
 
   /**
@@ -56,13 +58,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

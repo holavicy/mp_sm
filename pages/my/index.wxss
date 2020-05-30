@@ -1,1 +1,28 @@
 /* pages/my/index.wxss */
+
+.my{
+  width: 100vw;
+  height: 100vh;
+  background-color: #F0F4FA;
+}
+
+.my .info{
+  height: 270rpx;
+  padding: 0 36rpx 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.my .info image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  margin-top: 36rpx;
+}
+
+.my .jf{
+  width: 690rpx;
+  height: 88rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}

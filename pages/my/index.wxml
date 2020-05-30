@@ -1,4 +1,14 @@
 <!--pages/my/index.wxml-->
 <view class="my">
+  <view class="info">
+    <view class="info-left">
+      <view class="name">{{userInfo.name}}</view>
+      <view class="sub-info">离家在外，给你宠爱～</view>
+      <view class="jf-button">签到领积分</view>
+    </view>
+    <image src="{{userInfo.imageUrl}}"></image>
+  </view>
+  <view class="jf"></view>
+  <view class="nav"></view>
   <tabbar selectedIndex="2"></tabbar>
 </view>
