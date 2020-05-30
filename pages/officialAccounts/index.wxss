@@ -1,1 +1,31 @@
 /* pages/officialAccounts/index.wxss */
+.official-accounts{
+  width: 100vw;
+  height: 100vh;
+  background-color: #F0F4FA;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.wrapper{
+  background-color: #ffffff;
+  width: 690rpx;
+  margin: 0 auto;
+  border-radius: 15rpx 15rpx 0 0;
+  padding-top: 80rpx;
+}
+
+.wrapper image{
+  display: block;
+  width: 400rpx;
+  height: 400rpx;
+  margin: 0 auto;
+  margin-bottom: 60rpx;
+}
+.wrapper .text{
+  text-align: center;
+  font-size:30rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+}

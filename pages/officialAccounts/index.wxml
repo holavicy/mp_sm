@@ -1,2 +1,12 @@
 <!--pages/officialAccounts/index.wxml-->
-<text>pages/officialAccounts/index.wxml</text>
+<view class="official-accounts">
+  <view class="wrapper">
+    <view class="img-wrapper">
+      <image src="../../images/accounts.jpg"></image>
+      <view class="text">微信扫码/搜索微信号关注公众号</view>
+    </view>
+    <view class="blank-wrapper"></view>
+    <view class="account-wrapper"></view>
+  </view>
+  <view class="save-btn">保存图片</view>
+</view>
