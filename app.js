@@ -1,7 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
-    this.getSystemInfo();
+ 
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -39,67 +39,46 @@ App({
 
   },
 
-editTabbar: function() {
-  let tabbar = this.globalData.tabBar;
-  let currentPages = getCurrentPages();
-  let _this = currentPages[currentPages.length - 1];
-  let pagePath = _this.route;
-  (pagePath.indexOf('/') != 0) && (pagePath = '/' + pagePath);
-  for (let i in tabbar.list) {
-    tabbar.list[i].selected = false;
-    (tabbar.list[i].pagePath == pagePath) && (tabbar.list[i].selected = true);
-  }
-  _this.setData({
-    tabbar: tabbar
-  });
-},
+  globalData: {
+    userInfo: null
+  },
 
-globalData: {
-  systemInfo: null,//客户端设备信息
-  userInfo: null,
-  tabBar: {
-    "backgroundColor": "#ffffff",
-    "color": "#CCCCCC",
-    "selectedColor":"#023C6A",
-    "list": [
-      {
-        "pagePath": "/pages/home/index",
-        "iconPath": "icon/icon_home.png",
-        "selectedIconPath": "icon/icon_home_HL.png",
-        "text": "首页"
-      },
-      {
-        "pagePath": "/pages/invite/index",
-        "iconPath": "icon/icon_release.png",
-        "isSpecial": true,
-        "text": "邀请"
-      },
-      {
-        "pagePath": "/pages/my/index",
-        "iconPath": "icon/icon_mine.png",
-        "selectedIconPath": "icon/icon_mine_HL.png",
-        "text": "我的"
+  //保存图片
+  saveImage: function(filePath){
+    //先授权
+    wx.getSetting({
+      success: (res) => {
+        if (!res.authSetting['scope.writePhotosAlbum']) {
+          wx.authorize({
+            scope: 'scope.writePhotosAlbum',
+            success: () => {
+              wx.saveImageToPhotosAlbum({
+                filePath: filePath,
+                success: (res) => {
+                  wx.showToast({
+                    title: '保存图片成功',
+                  })
+                },
+                fail: (e) => {
+                  console.log(e);
+                }
+              })
+            }
+          })
+        } else {
+          wx.saveImageToPhotosAlbum({
+            filePath: filePath,
+            success: (res) => {
+              wx.showToast({
+                title: '保存图片成功',
+              })
+            },
+            fail: (e) => {
+              console.log(e);
+            }
+          })
+        }
       }
-    ]
-   }
-},
-
-  //自己对wx.hideTabBar的一个封装
-hidetabbar() {
-  wx.hideTabBar({
-    fail: function() {
-      setTimeout(function() { // 做了个延时重试一次，作为保底。
-        wx.hideTabBar()
-      }, 500)
-    }
-  });
-},
-getSystemInfo: function() {
-  let t = this;
-  wx.getSystemInfo({
-    success: function(res) {
-      t.globalData.systemInfo = res;
-    }
-  });
-},
+    })
+  }
 })
