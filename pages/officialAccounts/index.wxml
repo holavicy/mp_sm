@@ -5,8 +5,15 @@
       <image src="../../images/accounts.jpg"></image>
       <view class="text">微信扫码/搜索微信号关注公众号</view>
     </view>
-    <view class="blank-wrapper"></view>
-    <view class="account-wrapper"></view>
+    <view class="blank-wrapper">
+      <view class="circle left"></view>
+      <view class="line"></view>
+      <view class="circle right"></view>
+    </view>
+    <view class="account-wrapper">
+      <text>官方微信号：{{officialAccount}}</text>
+      <view class="copy-btn" bindtap="copyAccounts">复制微信号</view>
+    </view>
   </view>
-  <view class="save-btn">保存图片</view>
+  <view class="save-btn" bindtap="saveImg">保存图片</view>
 </view>
