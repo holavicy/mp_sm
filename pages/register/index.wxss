@@ -75,7 +75,7 @@
 }
 
 .submit-btn {
-  width:678rpx;
+  width:678rpx !important;
   height:94rpx;
   background:rgba(2,60,106,1);
   border-radius:6rpx;
@@ -87,4 +87,5 @@
   color:rgba(255,255,255,1);
   margin: 0 auto;
   margin-top: 80rpx;
+  padding: 0;
 }

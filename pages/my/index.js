@@ -30,24 +30,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let userInfoStr = wx.getStorageSync('userInfo') || '';
-    let userInfo = userInfoStr? JSON.parse(userInfoStr) :{};
-
-    if(userInfo.isRegister === 0){
-      wx.redirectTo({
-        url: '/pages/register/index',
-      })
-    } 
-
-    if(userInfoStr == ''){
-      login().then(() => {
-        if(userInfo.isRegister === 0){
-          wx.redirectTo({
-            url: '/pages/register/index',
-          })
-        } 
-      })
-    }
+    wx.hideHomeButton();
+    login().then(() => {
+      let userInfoStr = wx.getStorageSync('userInfo') || '';
+      let userInfo = userInfoStr? JSON.parse(userInfoStr) :{};
+      if(userInfo.isRegister === 0){
+        wx.redirectTo({
+          url: '/pages/register/index',
+        })
+      } 
+    })
   },
 
   /**

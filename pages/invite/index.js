@@ -1,20 +1,18 @@
 // pages/invite/index.js
-const app = getApp();
+import{login} from '../../common/interface'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabbar:{}
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.hideHomeButton();
-    app.editTabbar();
   },
 
   /**
@@ -28,7 +26,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.hideHomeButton();
+    login().then(() => {
+      let userInfoStr = wx.getStorageSync('userInfo') || '';
+      let userInfo = userInfoStr? JSON.parse(userInfoStr) :{};
+      if(userInfo.isRegister === 0){
+        wx.redirectTo({
+          url: '/pages/register/index',
+        })
+      } 
+    })
   },
 
   /**
