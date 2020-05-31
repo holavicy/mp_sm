@@ -1,22 +1,19 @@
-// pages/my/index.js
-import{login} from '../../common/interface'
+// pages/register/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: {
-      name:'陈明姣',
-      imageUrl:'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKzwARGeicV29Am0lCUzOWedKa8XCt916ib1edLibictupiaAxdfw8N0TOUEJjvDz0G88fRo4PfXtcjfdg/132',
-      jfNum:5000
-    }
+    sex:0,
+    type:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
   },
 
   /**
@@ -30,24 +27,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let userInfoStr = wx.getStorageSync('userInfo') || '';
-    let userInfo = userInfoStr? JSON.parse(userInfoStr) :{};
 
-    if(userInfo.isRegister === 0){
-      wx.redirectTo({
-        url: '/pages/register/index',
-      })
-    } 
-
-    if(userInfoStr == ''){
-      login().then(() => {
-        if(userInfo.isRegister === 0){
-          wx.redirectTo({
-            url: '/pages/register/index',
-          })
-        } 
-      })
-    }
   },
 
   /**
@@ -76,5 +56,23 @@ Page({
    */
   onReachBottom: function () {
 
+  },
+
+  //选择性别
+  setSex: function(e){
+    let sex = e.target.dataset.sex;
+    sex = Number(sex);
+    this.setData({
+      sex:sex
+    })
+  },
+
+  //选择获取方式
+  setType: function(e){
+    let type = e.target.dataset.type;
+    type = Number(type);
+    this.setData({
+      type:type
+    })
   }
 })

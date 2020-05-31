@@ -1,4 +1,6 @@
 //app.js
+
+import {request} from './common/interface.js'
 App({
   onLaunch: function () {
  

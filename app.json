@@ -8,7 +8,8 @@
     "pages/signIn/index",
     "pages/myInfo/index",
     "pages/myShare/index",
-    "pages/officialAccounts/index"
+    "pages/officialAccounts/index",
+    "pages/register/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
