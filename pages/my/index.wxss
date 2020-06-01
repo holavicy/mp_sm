@@ -132,7 +132,6 @@
 .nav-item{
   display: flex;
   height: 120rpx;
-  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -161,4 +160,9 @@
   font-weight:400;
   color:rgba(51,51,51,1);
   box-sizing: border-box;
+}
+
+button.contact{
+  background-color: #ffffff !important;
+  padding: 0 !important;
 }

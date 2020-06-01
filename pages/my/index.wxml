@@ -50,19 +50,17 @@
         <view class="arrow-right-nav"></view>
       </view>
     </navigator>
-    <navigator target="miniProgram" 
-    class="nav-item"
-    appId="wx8049aa19b5f58456"
-    path="/pages/home/index" 
-    hover-class="none">
+
+    <view class="nav-item">
       <view class="left">
         <image src="../../images/kf.png"></image>
       </view>
-      <view class="right">
+      <button class="right contact" type="default" open-type="contact">
         我的客服
         <view class="arrow-right-nav"></view>
-      </view>
-    </navigator>
+      </button>
+    </view>
+
     </view>
   </view>
 
