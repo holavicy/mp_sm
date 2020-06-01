@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo: null
   },
 
   /**
@@ -26,7 +26,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let userInfoStr = wx.getStorageSync('userInfo');
+    let userInfo = JSON.parse(userInfoStr);
+    this.setData({
+      userInfo: userInfo
+    })
   },
 
   /**

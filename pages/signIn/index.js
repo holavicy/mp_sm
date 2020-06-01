@@ -93,12 +93,17 @@ Page({
     request(url, {}).then((res) => {
       console.log(res);
 
-      if(res && res.data && res.data.code == 0){
+      if(res && res.data && res.data.code == 200){
         wx.showToast({
           title: '签到成功',
         });
 
         this.getCal();
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
       }
     })
   }

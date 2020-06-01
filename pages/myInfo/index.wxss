@@ -1,1 +1,49 @@
 /* pages/myInfo/index.wxss */
+page{
+  background-color: #F0F4FA;
+}
+
+.my-info .top{
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size:30rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+
+  padding-bottom: 36rpx;
+}
+
+.top image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  margin: 36rpx 0;
+}
+
+.info{
+  padding-left: 30rpx;
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+}
+
+.info .item{
+  height: 112rpx;
+  border-bottom: 1rpx solid #EEEEEE;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
+
+.info .item .right{
+  margin-right: 30rpx;
+}

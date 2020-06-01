@@ -1,2 +1,35 @@
 <!--pages/myInfo/index.wxml-->
-<text>pages/myInfo/index.wxml</text>
+<view class="my-info">
+  <view class="top">
+    <image src="{{userInfo.avatar}}"></image>
+    <view>推荐码：{{userInfo.referralCode}}</view>
+  </view>
+  <view class="info">
+
+    <view class="item">
+      <view class="left">姓名</view>
+      <view class="right">{{userInfo.name}}</view>
+    </view>
+
+    <view class="item">
+      <view class="left">性别</view>
+      <view class="right">{{userInfo.sex == 0?'男':'女'}}</view>
+    </view>
+
+    <view class="item">
+      <view class="left">生日</view>
+      <view class="right">{{userInfo.birthday}}</view>
+    </view>
+
+    <view class="item">
+      <view class="left">邮箱</view>
+      <view class="right">{{userInfo.email}}</view>
+    </view>
+
+    <view class="item" wx:if="{{userInfo.idCard}}">
+      <view class="left">身份证号</view>
+      <view class="right">{{userInfo.idCard}}</view>
+    </view>
+  </view>
+  <view class="list"></view>
+</view>
