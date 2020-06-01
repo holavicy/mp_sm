@@ -42,7 +42,8 @@ App({
   },
 
   globalData: {
-    userInfo: null
+    userInfo: null,
+    isIphoneX: wx.getSystemInfoSync().model.indexOf("iPhone X")
   },
 
   //保存图片

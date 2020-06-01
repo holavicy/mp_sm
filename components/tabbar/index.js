@@ -14,6 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    isIphoneX: wx.getSystemInfoSync().model.indexOf("iPhone X"),
     tabBarList:[
       {
         "pagePath": "/pages/home/index",

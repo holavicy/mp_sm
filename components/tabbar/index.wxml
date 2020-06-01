@@ -1,5 +1,5 @@
 <!--components/tabbar/index.wxml-->
-<view class="tab-bar">
+<view class="tab-bar {{isIphoneX?'iphoneX':''}}">
   <view class="tab-bar-item {{item.isSpecial?'special':''}}" wx:for="{{tabBarList}}" wx:key="index">
     <navigator class="container" hover-class="none" url="{{item.pagePath}}" open-type="redirect">
       <image class="tab-bar-item-icon" src="{{selectedIndex == index ? item.selectedIconPath : item.iconPath}}"></image>

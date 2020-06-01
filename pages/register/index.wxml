@@ -4,18 +4,24 @@
     <view class="item">
       <view class="left"><text class="required">*</text>姓名</view>
       <view class="right">
-        <input class="name" type="text" placeholder="请输入真实姓名" bindblur="setName"></input>
+        <input class="name" type="text" 
+        placeholder="请输入真实姓名" 
+        placeholder-class="input-lh" 
+        bindblur="setName"></input>
       </view>
     </view>
 
     <view class="item">
       <view class="left"><text class="required">*</text>邮箱</view>
       <view class="right">
-        <input class="name" type="text" placeholder="请输入邮箱" bindblur="setEmail"></input>
+        <input class="name" type="text" 
+        placeholder="请输入邮箱" 
+        placeholder-class="input-lh"
+        bindblur="setEmail"></input>
       </view>
     </view>
 
-        <view class="item">
+    <view class="item">
       <view class="left"><text class="required">*</text>性别</view>
       <view class="right">
         <image src="../../images/male1.png" class="sex" wx:if="{{sex==1}}" data-sex="0" bindtap="setSex"></image>
@@ -28,25 +34,31 @@
     <view class="item">
       <view class="left"><text class="required">*</text>生日</view>
       <view class="right">
-         <picker mode="date" value="{{birthday}}" start="1900-09-01" bindchange="bindDateChange">
-    <view class="picker">
-      {{birthday==''?'请选择生日':birthday}}
-    </view>
-  </picker>
+        <picker mode="date" value="{{birthday}}" start="1900-09-01" bindchange="bindDateChange">
+          <view class="picker {{birthday == ''?'input-lh':''}}">
+            {{birthday==''?'请选择生日':birthday}}
+            <view class="arrow-right"></view>
+          </view>
+        </picker>
       </view>
     </view>
 
     <view class="item">
       <view class="left">身份证</view>
       <view class="right">
-        <input class="name" type="text" placeholder="请输入身份证号" bindblur="setIdCard"></input>
+        <input class="name" type="text" placeholder="请输入身份证号" 
+        placeholder-class="input-lh"
+        bindblur="setIdCard"></input>
       </view>
     </view>
 
     <view class="item">
       <view class="left">手机号</view>
       <view class="right">
-        <input class="name" type="text" placeholder="请输入手机号" bindblur="setTel"></input>
+        <input class="name" type="text" 
+        placeholder="请输入手机号"
+        placeholder-class="input-lh"
+         bindblur="setTel"></input>
       </view>
     </view>
 
@@ -62,7 +74,10 @@
     <view class="item">
       <view class="left"><text class="required" wx:if="{{type == 3}}">*</text>专属推荐码</view>
       <view class="right">
-        <input class="name" type="text" placeholder="请输入专属推荐码" bindblur="setRemCode"></input>
+        <input class="name" type="text" 
+        placeholder="请输入专属推荐码" 
+        placeholder-class="input-lh"
+        bindblur="setRemCode"></input>
       </view>
     </view>
 
