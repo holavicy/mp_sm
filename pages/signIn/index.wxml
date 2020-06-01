@@ -1,8 +1,10 @@
 <!--pages/signIn/index.wxml-->
 <view class="sign-in">
+ <nav-bar></nav-bar>
   <view class="top-wrapper">
     <image src="../../images/bg.png" class="bg"></image>
-    <view class="content-wrapper">
+    <view class="content-wrapper {{isX?'':'iphoneX'}}">
+   
         <view class="navigation-bar">
           <navigator class="arrow-left-nav" open-type="navigateBack"></navigator>
           <view class="title">签到</view>

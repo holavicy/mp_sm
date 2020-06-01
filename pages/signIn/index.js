@@ -1,11 +1,13 @@
 // pages/signIn/index.js
 import{ request } from '../../common/interface'
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    isX: app.globalData.isIphoneX,
     calList: [],
     hasSignedToday:true,
     rule: ''

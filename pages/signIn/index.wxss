@@ -28,6 +28,10 @@ page{
   z-index: 2;
 }
 
+.content-wrapper.iphoneX{
+  top:88rpx;
+}
+
 .content-wrapper .navigation-bar{
   height: 88rpx;
   text-align: center;
