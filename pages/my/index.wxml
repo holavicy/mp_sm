@@ -10,9 +10,9 @@
           签到领积分
         </navigator>
       </view>
-      <image src="{{userInfo.imageUrl}}" class="user-img"></image>
+      <image src="{{userInfo.avatar}}" class="user-img"></image>
     </view>
-    <view class="jf">
+    <navigator class="jf" url="/pages/myJF/index" hover-class="none">
       <view class="left">
         <image src="../../images/jf.png"></image>
         <text>我的积分</text>
@@ -21,7 +21,7 @@
         <text>{{userInfo.jfNum}}</text>
         <view class="arrow-right-jf"></view>
       </view>
-    </view>
+    </navigator>
     <view class="nav">
     <navigator class="nav-item" url="/pages/myInfo/index" hover-class="none">
       <view class="left">

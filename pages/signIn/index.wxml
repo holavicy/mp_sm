@@ -1,2 +1,46 @@
 <!--pages/signIn/index.wxml-->
-<text>pages/signIn/index.wxml</text>
+<view class="sign-in">
+  <view class="top-wrapper">
+    <image src="../../images/bg.png" class="bg"></image>
+    <view class="content-wrapper">
+        <view class="navigation-bar">
+          <navigator class="arrow-left-nav" open-type="navigateBack"></navigator>
+          <view class="title">签到</view>
+        </view>
+        <view class="top-info">
+          <view class="left">
+            <view>已签到</view>
+            <view class="day-num">
+              <view class="num">2</view>
+              <view class="num">1</view>
+              <view class="day">天</view>
+            </view>
+          </view>
+          <view class="right">
+            <text>已领积分：</text>
+            <text class="jf-num">{{jfNum}}</text>
+          </view>
+        </view>
+    </view>
+  </view>
+
+  <view class="cal-wrapper">
+    <view class="header">连续签到赢积分</view>
+    <view class="cal">
+      <view class="cal-item {{item.isSign == 1?'active':''}}" wx:for="{{calList}}" wx:key="index">
+        <view class="text">第{{item.sequence}}天</view>
+        <image src="../../images/wqd.png" wx:if="{{item.isSign == 0}}"></image>
+        <image src="../../images/yqd.png" wx:if="{{item.isSign == 1}}"></image>
+        <view class="text sub">{{item.isSign == 0?'未签到':'已签到'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="sign-in-btn {{hasSignedToday?'disabled':''}}" bindtap="sign">立即签到</view>
+  
+  <view class="rule">
+  <view class="header">规则说明</view>
+  <text class="info">{{rule}}</text>
+
+  </view>
+</view>

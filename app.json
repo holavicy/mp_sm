@@ -9,7 +9,8 @@
     "pages/myInfo/index",
     "pages/myShare/index",
     "pages/officialAccounts/index",
-    "pages/register/index"
+    "pages/register/index",
+    "pages/myJF/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

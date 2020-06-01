@@ -1,16 +1,12 @@
 // pages/my/index.js
-import{login} from '../../common/interface'
+import{ login, request } from '../../common/interface'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: {
-      name:'陈明姣',
-      imageUrl:'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKzwARGeicV29Am0lCUzOWedKa8XCt916ib1edLibictupiaAxdfw8N0TOUEJjvDz0G88fRo4PfXtcjfdg/132',
-      jfNum:5000
-    }
+    userInfo: {}
   },
 
   /**
@@ -38,8 +34,11 @@ Page({
         wx.redirectTo({
           url: '/pages/register/index',
         })
-      } 
-    })
+      } else {
+        this.getUserInfo();
+        this.getJFNum();
+      }
+    });
   },
 
   /**
@@ -68,5 +67,32 @@ Page({
    */
   onReachBottom: function () {
 
+  },
+
+  //从storage中获取用户信息
+  getUserInfo: function(){
+    let userInfo = wx.getStorageSync('userInfo') || '';
+    userInfo = JSON.parse(userInfo);
+    this.setData({
+      userInfo: userInfo
+    })
+  },
+
+  //获取我的积分总数
+  getJFNum: function(){
+    let url = '/integral/myIntegralCount';
+    request(url, {}).then((res) => {
+      console.log(res);
+
+      if(res && res.data && res.data.code == 200){
+        let userInfo = this.data.userInfo;
+        userInfo.jfNum = res.data.data;
+        this.setData({
+          userInfo:userInfo
+        })
+      }
+
+      
+    })
   }
 })

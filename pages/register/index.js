@@ -213,13 +213,13 @@ Page({
     request(url, paramData, method).then((res) => {
       console.log(res);
 
-      if(res.code == 200){
+      if(res.data.code == 200){
         wx.redirectTo({
           url: '/pages/home/index',
         })
       } else {
         wx.showToast({
-          title: res.msg,
+          title: res.data.msg,
           icon: 'none'
         })
       }

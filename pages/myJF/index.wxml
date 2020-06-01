@@ -1,0 +1,29 @@
+<!--pages/myJF/index.wxml-->
+<view class="my-jf">
+  <view class="top-wrapper">
+    <image src="../../images/bg2.png" class="bg"></image>
+    <view class="top">
+      <view class="jf-num">{{jfNum}}</view>
+      <view>积分</view>
+    </view>
+    <view class="bottom">
+      <view class="bottom-left">
+        <view class="title">签到领积分</view>
+        <view class="sub-info">连续签到赢更多积分</view>
+      </view>
+      <view class="bottom-right">
+        <navigator class="sign-btn" url="/pages/signIn/index" hover-class="none">签到</navigator>
+      </view>
+    </view>
+  </view>
+  <view class="jf-list">
+    <view class="header">积分纪录</view>
+    <view class="item">
+      <view class="left"></view>
+      <view class="right">
+      <view class=""></view>
+      <view class=""></view>
+      </view>
+    </view>
+  </view>
+</view>

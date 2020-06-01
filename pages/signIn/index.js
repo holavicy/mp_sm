@@ -1,11 +1,14 @@
 // pages/signIn/index.js
+import{ request } from '../../common/interface'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    calList: [],
+    hasSignedToday:true,
+    rule: ''
   },
 
   /**
@@ -26,7 +29,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getCal();
   },
 
   /**
@@ -57,10 +60,43 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  getCal: function(){
+    let url = '/sign/myCalendar';
+    request(url, {}).then((res) => {
+      console.log(res);
 
+      if(res && res.data && res.data.code == 200){
+        let data = res.data.data;
+  
+        this.setData({
+          calList: data.calendarList,
+          rule: data.rule,
+          hasSignedToday: !!data.hasSignedToday,
+          jfNum: data.integralNum
+        })
+      }
+    })
+  },
+
+  //签到
+  sign: function(){
+    let hasSignedToday = this.data.hasSignedToday;
+
+    if(hasSignedToday) {
+      return
+    }
+
+    let url = '/sign/doSign';
+    request(url, {}).then((res) => {
+      console.log(res);
+
+      if(res && res.data && res.data.code == 0){
+        wx.showToast({
+          title: '签到成功',
+        });
+
+        this.getCal();
+      }
+    })
   }
 })
