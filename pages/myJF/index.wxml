@@ -1,4 +1,14 @@
 <!--pages/myJF/index.wxml-->
+<wxs module="foo">
+  var fomatTime = function(str){
+    var timeList = str.split('-');
+    var time = timeList[0] + '年' + parseInt(timeList[1]) + '月' + parseInt(timeList[2])+'日';
+    return time
+  }
+  module.exports = {
+    fomatTime : fomatTime
+  }
+</wxs>
 <view class="my-jf">
   <view class="top-wrapper">
     <image src="../../images/bg2.png" class="bg"></image>
@@ -18,11 +28,11 @@
   </view>
   <view class="jf-list">
     <view class="header">积分纪录</view>
-    <view class="item">
-      <view class="left"></view>
+    <view class="item" wx:for="{{jfList}}" wx:key="index">
+      <view class="left"><text class="add">+</text>{{item.num}}</view>
       <view class="right">
-      <view class=""></view>
-      <view class=""></view>
+      <view>{{typeObj[item.type]}}</view>
+      <view class="sub-info">积分获得时间：{{foo.fomatTime(item.optDate)}}</view>
       </view>
     </view>
   </view>
