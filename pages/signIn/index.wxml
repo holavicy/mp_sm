@@ -11,8 +11,7 @@
           <view class="left">
             <view>已签到</view>
             <view class="day-num">
-              <view class="num">2</view>
-              <view class="num">1</view>
+              <view class="num" wx:for="{{singDaysList}}" wx:key="index">{{item}}</view>
               <view class="day">天</view>
             </view>
           </view>

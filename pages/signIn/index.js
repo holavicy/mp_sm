@@ -67,12 +67,15 @@ Page({
 
       if(res && res.data && res.data.code == 200){
         let data = res.data.data;
+        let singDaysList = (data.signedDays+"").split('');
   
         this.setData({
           calList: data.calendarList,
           rule: data.rule,
           hasSignedToday: !!data.hasSignedToday,
-          jfNum: data.integralNum
+          jfNum: data.integralNum,
+          signedDays: data.signedDays,
+          singDaysList: singDaysList
         })
       }
     })
