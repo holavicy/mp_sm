@@ -89,3 +89,21 @@
   margin-top: 80rpx;
   padding: 0;
 }
+
+.input-lh{
+  color: #CFCFCF;
+}
+
+.picker{
+  display: flex;
+  align-items: center;
+}
+.arrow-right{
+  width:14rpx;
+  height:14rpx;
+  border-top: 2rpx solid #CCCCCC;
+  border-right: 2rpx solid #CCCCCC;
+  box-sizing: border-box;
+  margin-left: 12rpx;
+  transform: rotate(45deg) skew(4deg,4deg);
+}

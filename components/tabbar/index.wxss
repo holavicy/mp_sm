@@ -13,6 +13,11 @@
   box-sizing: border-box;
 }
 
+.tab-bar.iphoneX{
+  height: 166rpx;
+  padding-bottom: 68rpx;
+}
+
 .tab-bar-item .container{
   display: flex;
   flex-direction: column;
