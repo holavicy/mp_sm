@@ -1,5 +1,6 @@
 // pages/home/index.js
 import{login} from '../../common/interface'
+var app = getApp();
 Page({
 
   /**
@@ -58,6 +59,9 @@ Page({
    */
   onShow: function () {
     this.getGoodsList();
+    this.setData({
+      isX: app.globalData.isIphoneX
+    })
   },
 
   /**

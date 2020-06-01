@@ -31,7 +31,6 @@
   font-size: 24rpx;
   width: 200rpx;
   flex-grow: 1;
-  flex-grow: 1;
 }
 
 .goods-list{
@@ -83,6 +82,10 @@
   position: fixed;
   right: 24rpx;
   bottom: 158rpx;
+}
+
+.shop-cart.iphoneX{
+  bottom: 226rpx;
 }
 
 .shop-cart image{

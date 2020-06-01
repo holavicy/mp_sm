@@ -22,7 +22,7 @@
     </navigator>
   </view>
 
-  <navigator class="shop-cart" hover-class="none" url="/pages/webView/index">
+  <navigator class="shop-cart {{isX == 0?'iphoneX':''}}" hover-class="none" url="/pages/webView/index">
     <image src="../../images/shopcart.png"></image>
   </navigator>
   <tabbar selectedIndex="0"></tabbar>
