@@ -1,5 +1,6 @@
 // pages/register/index.js
 import{request} from '../../common/interface'
+import{test} from '../../utils/regular'
 Page({
 
   /**
@@ -36,7 +37,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //判断是否通过推荐进入
+    let oriCode = wx.getStorageSync('oriCode');
+    if(oriCode){
+      this.setData({
+        type: 3,
+        remCode: oriCode
+      })
+    }
   },
 
   /**
@@ -50,20 +58,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
   },
 
@@ -179,9 +173,33 @@ Page({
       return
     }
 
+    if(!test(email, 'email')){
+      wx.showToast({
+        title: '邮箱格式错误',
+        icon: 'none'
+      })
+      return
+    }
+
     if(birthday == ''){
       wx.showToast({
         title: '请选择生日',
+        icon: 'none'
+      })
+      return
+    }
+
+    if(idCard && !test(idCard, 'idCard')){
+      wx.showToast({
+        title: '身份证号格式错误',
+        icon: 'none'
+      })
+      return
+    }
+
+    if(tel && !test(tel, 'tel')){
+      wx.showToast({
+        title: '手机号格式错误',
         icon: 'none'
       })
       return
@@ -214,9 +232,16 @@ Page({
       console.log(res);
 
       if(res.data.code == 200){
-        wx.redirectTo({
-          url: '/pages/home/index',
+
+        wx.showToast({
+          title: '注册成功'
         })
+
+        setTimeout(function(){
+          wx.redirectTo({
+            url: '/pages/home/index',
+          })
+        },1000)
       } else {
         wx.showToast({
           title: res.data.msg,
