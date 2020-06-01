@@ -64,7 +64,7 @@ page{
   z-index: 3;
 }
 
-.top-wrapper .top-info{
+.top-info{
   display: flex;
   justify-content: space-between;
   padding: 44rpx 30rpx 0 30rpx;
@@ -72,14 +72,15 @@ page{
   color: #ffffff;
   font-size: 32rpx;
   font-weight: 500;
+  width: 100%;
 }
 
-.top-wrapper .top-info .left .day-num{
+.top-info .left .day-num{
   display: flex;
   margin-top: 30rpx;
 }
 
-.top-wrapper .top-info .left .day-num .num{
+.top-info .left .day-num .num{
   width:60rpx;
   height:116rpx;
   line-height: 116rpx;
@@ -93,7 +94,7 @@ page{
   margin-right: 10rpx;
 }
 
-.top-wrapper .top-info .left .day-num .day{
+.top-info .left .day-num .day{
   height:116rpx;
   line-height: 116rpx;
   margin-left: 6rpx;

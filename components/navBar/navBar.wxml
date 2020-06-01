@@ -1,19 +1,14 @@
-<view class='nav' style='height: {{status + navHeight}}px'>
-    <view class='status' style='height: {{status}}px;{{containerStyle}}'></view>
-    <view class='navbar' style='height:{{navHeight}}px;{{containerStyle}}'>
-        <view class='back-icon' wx:if="{{backIcon}}" bindtap='back'>
-            <image src='{{backIcon}}'></image>
-        </view>
-        <view class='home-icon' wx:if="{{homeIcon}}" bindtap='home'>
-            <image src='{{homeIcon}}'></image>
-        </view>
-        <view class='nav-icon' wx:if="{{titleImg}}">
-            <image src='{{titleImg}}' style='{{iconStyle}}'></image>
-        </view>
-        <view class='nav-title' wx:if="{{titleText && !titleImg}}">
-            <text style='{{textStyle}}'>{{titleText}}</text>
-        </view>
-
+<view class='nav' style="height: {{height}}rpx; background-image: url('{{bg}}'); background-size: cover">
+  <!-- <image src="{{bg}}" wx:if="{{bg}}" class="bg"></image> -->
+  <view class='status' style='height: {{status}}px;{{containerStyle}}'></view>
+  <view class='navbar' style='height:{{navHeight}}px;{{containerStyle}}'>
+  
+    <view class="arrow-left-nav" wx:if="{{back}}" bindtap="navBack"></view>
+     
+    <view class='nav-title' wx:if="{{titleText}}">
+        <text style='{{textStyle}}'>{{titleText}}</text>
     </view>
-    
+
+  </view> 
+  <slot name="cus"></slot> 
 </view>

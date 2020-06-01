@@ -1,29 +1,27 @@
 <!--pages/signIn/index.wxml-->
 <view class="sign-in">
- <nav-bar></nav-bar>
-  <view class="top-wrapper">
-    <image src="../../images/bg.png" class="bg"></image>
-    <view class="content-wrapper {{isX?'':'iphoneX'}}">
-   
-        <view class="navigation-bar">
-          <navigator class="arrow-left-nav" open-type="navigateBack"></navigator>
-          <view class="title">签到</view>
-        </view>
-        <view class="top-info">
-          <view class="left">
-            <view>已签到</view>
-            <view class="day-num">
-              <view class="num" wx:for="{{singDaysList}}" wx:key="index">{{item}}</view>
-              <view class="day">天</view>
-            </view>
-          </view>
-          <view class="right">
-            <text>已领积分：</text>
-            <text class="jf-num">{{jfNum}}</text>
+  <nav-bar height="450" 
+            bg='../../images/bg.png'
+            background=''
+            titleText='签到'
+            color='#ffffff'
+            fontSize='36'>
+      <view slot="cus" class="top-info" >
+        <view class="left">
+          <view>已签到</view>
+          <view class="day-num">
+            <view class="num" wx:for="{{singDaysList}}" wx:key="index">{{item}}</view>
+            <view class="day">天</view>
           </view>
         </view>
-    </view>
-  </view>
+
+        <view class="right">
+          <text>已领积分：</text>
+          <text class="jf-num">{{jfNum}}</text>
+        </view>
+      </view>
+
+  </nav-bar>
 
   <view class="cal-wrapper">
     <view class="header">连续签到赢积分</view>
