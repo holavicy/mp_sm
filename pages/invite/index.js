@@ -1,5 +1,5 @@
 // pages/invite/index.js
-import{login} from '../../common/interface'
+import{login, request} from '../../common/interface'
 Page({
 
   /**
@@ -36,6 +36,8 @@ Page({
         })
       } 
     })
+
+    this.getList();
   },
 
   /**
@@ -71,5 +73,18 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getList: function(){
+    wx.showLoading();
+    let url = '/poster/posterList';
+    request(url, {}).then(res => {
+      wx.hideLoading();
+      if(res && res.data && res.data.code == 200){
+        this.setData({
+          list: res.data.data
+        })
+      }
+    }) 
   }
 })

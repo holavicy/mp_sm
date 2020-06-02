@@ -1,4 +1,19 @@
 <!--pages/invite/index.wxml-->
 <view class="invite">
+  <view class="image-wrapper">
+    <view class="item" wx:for="{{list}}">
+      <image src="{{item.posterUrl}}" class="main-img"></image>
+      <view class="bottom">
+        <view class="mini">
+          <view class="text">微信扫描二维码查看详情</view>
+          <image src="{{item.miniUrl}}" class="mini-img"></image>
+        </view>
+        <view class="btns">
+          <view class="btn left">分享</view>
+          <view class="btn right">保存图片</view>
+        </view>
+      </view>
+    </view>
+  </view>
   <tabbar selectedIndex="1"></tabbar>
 </view>

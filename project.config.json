@@ -120,6 +120,13 @@
 					"id": -1,
 					"name": "我的推荐",
 					"pathName": "pages/myShare/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "邀请",
+					"pathName": "pages/invite/index",
 					"scene": null
 				}
 			]

@@ -1,1 +1,75 @@
 /* pages/invite/index.wxss */
+page{
+  background-color: #F0F4FA;
+}
+
+.invite{
+  width: 100vw;
+  height: 100vh;
+  margin-bottom: 98rpx;
+}
+
+.item{
+  width: 630rpx;
+}
+
+.main-img{
+  width: 630rpx;
+  height:880rpx;
+  display: block;
+}
+
+.bottom{
+  background-color: #ffffff;
+  box-shadow:0px 6rpx 12rpx 0rpx rgba(0,0,0,0.1);
+  border-radius:0px 0px 8rpx 8rpx;
+}
+
+.bottom .mini{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 160rpx;
+  padding: 0 60rpx;
+  box-sizing: border-box;
+  font-size:24rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(2,60,106,1);
+  text-shadow:0px 6px 12px rgba(0,0,0,0.1);
+}
+
+.mini-img{
+  width:100rpx;
+  height:100rpx;
+}
+
+.btns{
+  padding: 0 30rpx 30rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.btns .btn{
+  width: 275rpx;
+  height:94rpx;
+  box-shadow:0rpx 6rpx 12rpx 0rpx rgba(0,0,0,0.1);
+  border-radius:6rpx;
+  text-align: center;
+  line-height: 94rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  text-shadow:0rpx 6rpx 12rpx rgba(0,0,0,0.1);
+}
+.btns .btn.left{
+  background:#E8EDF1;
+  color:rgba(2,60,106,1);
+}
+
+.btns .btn.right{
+  background:rgba(2,60,106,1);
+  color:rgba(255,255,255,1);
+}
