@@ -20,9 +20,9 @@
   </view> -->
 
   <view class="goods-list">
-    <navigator class="goods-item" wx:for="{{goodsList}}" wx:key="index"
-                hover-class="none"
-                url="/pages/product/index?id={{item.id}}" open-type="navigate">
+    <view class="goods-item" wx:for="{{goodsList}}" wx:key="index"
+          data-index="{{index}}"
+          bindtap="toProduct">
       <view class="image">
         <image src="{{item.content.articles[0].thumbUrl}}"></image>
       </view>
@@ -32,7 +32,7 @@
       <view class="time">
         发布时间：{{foo.fomatTime(item.updateTime)}}
       </view>
-    </navigator>
+    </view>
   </view>
 
   <navigator class="shop-cart {{isX == 0?'iphoneX':''}}" hover-class="none" url="/pages/webView/index">

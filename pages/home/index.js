@@ -133,5 +133,19 @@ Page({
       goodsList:[]
     })
     this.getGoodsList();
+  },
+
+  toProduct: function(e){
+    let goodsList = this.data.goodsList;
+    let index = e.currentTarget.dataset.index;
+
+
+    let url = goodsList[index].content.articles[0].url;
+    console.log(url);
+
+    url = encodeURIComponent(url);
+    wx.navigateTo({
+      url: '/pages/webView/index?url='+url,
+    })
   }
 })
