@@ -61,6 +61,8 @@ Page({
   onShow: function () {
     this.getGoodsList();
     this.setData({
+      page: 0,
+      goodsList: [],
       isX: app.globalData.isIphoneX
     })
   },

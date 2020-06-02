@@ -1,2 +1,2 @@
 <!--pages/webView/index.wxml-->
-<web-view src="http://www.baidu.com"></web-view>
+<web-view src="http://mp.weixin.qq.com/s?__biz=MzI3NjUyNTI4MA==&mid=100000018&idx=1&sn=2d456881652dc549e07acc0e861cc501&chksm=6b75789d5c02f18ba8c882047be83066165fe29c3d34df674006dc866078c979adb02726eb61#rd"></web-view>
