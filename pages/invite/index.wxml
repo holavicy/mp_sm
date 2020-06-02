@@ -15,5 +15,5 @@
       </view>
     </view>
   </view>
-  <tabbar selectedIndex="1"></tabbar>
+  <tabbar selectedIndex="1" class="tab-bar-wrapper"></tabbar>
 </view>

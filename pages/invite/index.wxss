@@ -6,16 +6,35 @@ page{
 .invite{
   width: 100vw;
   height: 100vh;
-  margin-bottom: 98rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.item{
+.tab-bar-wrapper{
+  height: 144rpx;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.image-wrapper{
+  display: flex;
+  flex-shrink: 1;
+  flex-grow: 1;
+  height: 100rpx;
+  flex-direction: row;
+  align-items: center;
+}
+
+.image-wrapper .item{
   width: 630rpx;
+  height: 93%;
+  margin: 0 18rpx;
 }
 
 .main-img{
   width: 630rpx;
-  height:880rpx;
+  height:75%;
   display: block;
 }
 
@@ -23,6 +42,10 @@ page{
   background-color: #ffffff;
   box-shadow:0px 6rpx 12rpx 0rpx rgba(0,0,0,0.1);
   border-radius:0px 0px 8rpx 8rpx;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .bottom .mini{
@@ -30,7 +53,7 @@ page{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 160rpx;
+  height: 35%;
   padding: 0 60rpx;
   box-sizing: border-box;
   font-size:24rpx;
@@ -41,8 +64,9 @@ page{
 }
 
 .mini-img{
-  width:100rpx;
-  height:100rpx;
+  height:100%;
+  width: 100rpx;
+  display: block;
 }
 
 .btns{
@@ -50,19 +74,21 @@ page{
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
+  height: 33%;
 }
 
 .btns .btn{
   width: 275rpx;
-  height:94rpx;
+  height:100%;
   box-shadow:0rpx 6rpx 12rpx 0rpx rgba(0,0,0,0.1);
   border-radius:6rpx;
-  text-align: center;
-  line-height: 94rpx;
-  font-size:32rpx;
+  font-size:34%;
   font-family:PingFangSC-Medium,PingFang SC;
   font-weight:500;
   text-shadow:0rpx 6rpx 12rpx rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .btns .btn.left{
   background:#E8EDF1;
