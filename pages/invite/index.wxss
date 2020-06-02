@@ -24,12 +24,20 @@ page{
   height: 100rpx;
   flex-direction: row;
   align-items: center;
+  width: 100vw;
+  overflow-x: auto;
+  padding: 0 44rpx;
+  box-sizing: border-box;
 }
 
 .image-wrapper .item{
   width: 630rpx;
-  height: 93%;
+  height: 81%;
   margin: 0 18rpx;
+}
+
+.image-wrapper .item.active{
+  height: 93%;
 }
 
 .main-img{

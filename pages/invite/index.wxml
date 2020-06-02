@@ -1,7 +1,7 @@
 <!--pages/invite/index.wxml-->
 <view class="invite">
   <view class="image-wrapper">
-    <view class="item" wx:for="{{list}}">
+    <view class="item {{currIndex == index?'active':''}}" wx:for="{{list}}">
       <image src="{{item.posterUrl}}" class="main-img"></image>
       <view class="bottom">
         <view class="mini">
