@@ -1,13 +1,12 @@
 <!--pages/home/index.wxml-->
 <wxs module="foo">
   var fomatTime = function(str){
-    var date = getDate(str)
-    var year = date.getFullYear()
-    var month = date.getMonth() + 1
-    var day = date.getDate()
-
-    return year+'年'+month+'月'+day+'日'
+    str = str.split('T')[0];
+    var timeList = str.split('-');
+    var time = timeList[0] + '年' + parseInt(timeList[1]) + '月' + parseInt(timeList[2])+'日';
+    return time
   }
+
   module.exports = {
     fomatTime : fomatTime
   }

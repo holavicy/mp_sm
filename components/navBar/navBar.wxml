@@ -1,5 +1,5 @@
-<view class='nav' style="height: {{height}}rpx; background-image: url('{{bg}}'); background-size: cover">
-  <!-- <image src="{{bg}}" wx:if="{{bg}}" class="bg"></image> -->
+<view class='nav' style="height: {{height}}rpx;">
+  <image src="{{bg}}" wx:if="{{bg}}" class="bg"></image>
   <view class='status' style='height: {{status}}px;{{containerStyle}}'></view>
   <view class='navbar' style='height:{{navHeight}}px;{{containerStyle}}'>
   
@@ -10,5 +10,5 @@
     </view>
 
   </view> 
-  <slot name="cus"></slot> 
+  <slot name="cus" class="cus"></slot> 
 </view>

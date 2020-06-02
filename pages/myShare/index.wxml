@@ -1,7 +1,20 @@
 <!--pages/myShare/index.wxml-->
+<wxs module="foo">
+  var fomatTime = function(str){
+    var timeList = str.split('-');
+    var time = timeList[0] + '年' + parseInt(timeList[1]) + '月' + parseInt(timeList[2])+'日';
+    return time
+  }
+  module.exports = {
+    fomatTime : fomatTime
+  }
+</wxs>
 <view class="my-share">
-<view class="header">推荐列表 ({{totalNum}})</view>
-<view class="share-list">
-<view class="item" wx:for="{{list}}" wx:key="index"></view>
-</view>
+  <view class="header">推荐列表 (<text class="num">{{totalNum}}</text>)</view>
+  <view class="share-list">
+    <view class="item" wx:for="{{list}}" wx:key="index">
+      <view class="left">{{item.cutsomerName}}</view>
+      <view class="right">推荐时间：<text class="time">{{foo.fomatTime(item.registerTime)}}</text> </view>
+    </view>
+  </view>
 </view>

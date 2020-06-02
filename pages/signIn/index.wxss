@@ -73,6 +73,8 @@ page{
   font-size: 32rpx;
   font-weight: 500;
   width: 100%;
+  position: absolute;
+  z-index: 2;
 }
 
 .top-info .left .day-num{

@@ -1,6 +1,7 @@
 /* pages/myJF/index.wxss */
 page{
   background-color: #F0F4FA;
+  height: 100%;
 }
 
 .top-wrapper{
