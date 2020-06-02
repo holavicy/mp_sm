@@ -1,23 +1,36 @@
 <!--pages/home/index.wxml-->
+<wxs module="foo">
+  var fomatTime = function(str){
+    var date = getDate(str)
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+
+    return year+'年'+month+'月'+day+'日'
+  }
+  module.exports = {
+    fomatTime : fomatTime
+  }
+</wxs>
 <view class="home">
-  <view class="search-wrapper">
+  <!-- <view class="search-wrapper">
     <image src="../../images/search.png"></image>
     <input value="{{str}}" placeholder="请输入产品名称" 
     bindblur="bindblurStr"></input>
-  </view>
+  </view> -->
 
   <view class="goods-list">
     <navigator class="goods-item" wx:for="{{goodsList}}" wx:key="index"
                 hover-class="none"
                 url="/pages/product/index?id={{item.id}}" open-type="navigate">
       <view class="image">
-        <image src="{{item.imageUrl}}"></image>
+        <image src="{{item.content.articles[0].thumbUrl}}"></image>
       </view>
       <view class="name">
-        {{item.name}}
+        {{item.content.articles[0].title}}
       </view>
       <view class="time">
-        发布时间：{{item.time}}
+        发布时间：{{foo.fomatTime(item.updateTime)}}
       </view>
     </navigator>
   </view>

@@ -1,1 +1,14 @@
 /* pages/myShare/index.wxss */
+
+page{
+  background-color: #F0F4FA;
+}
+
+.my-share .header{
+
+font-size:30rpx;
+font-family:PingFangSC-Regular,PingFang SC;
+font-weight:400;
+color:rgba(51,51,51,1);
+margin: 48rpx 0 24rpx 0;
+}

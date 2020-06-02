@@ -1,5 +1,6 @@
 // pages/home/index.js
-import{login} from '../../common/interface'
+import{login, request} from '../../common/interface'
+
 var app = getApp();
 Page({
 
@@ -100,37 +101,24 @@ Page({
   //查询商品列表
   getGoodsList: function(){
     wx.showLoading();
-    let str = this.data.str || '';
     let page = this.data.page;
     let pageSize = this.data.pageSize;
 
-    let url = 'http://172.18.0.205:8082/demo/superadmin/listarea'
-    let data = {
-      str: str,
-      page: page,
-      pageSize: pageSize
-    }
-    wx.request({
-      url: url, 
-      data: data,
-      success: (res) => {
-        wx.hideLoading();
-        res.data= {
-          goodsList:this.data.goodsListMock,
-          totalNum:6
-        }
+    let url = '/article/list?count='+pageSize+'&start='+page
+
+    request(url, {}, 'POST').then(res => {
+      wx.hideLoading()
+      console.log(res);
+
+      if(res && res.data && res.data.code == 200){
         let goodsList = this.data.goodsList;
-        goodsList = goodsList.concat(res.data.goodsList);
+        goodsList = goodsList.concat(res.data.data.items);
         this.setData({
           goodsList:goodsList,
-          totalNum:res.data.totalNum
+          totalNum:res.data.data.totalCount
         })
-      },
-      fail(e){
-        wx.hideLoading();
-        console.log(e)
       }
-    })
+    }) 
   },
 
   bindblurStr: function(e){

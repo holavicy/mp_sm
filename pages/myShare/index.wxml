@@ -1,2 +1,7 @@
 <!--pages/myShare/index.wxml-->
-<text>pages/myShare/index.wxml</text>
+<view class="my-share">
+<view class="header">推荐列表 ({{totalNum}})</view>
+<view class="share-list">
+<view class="item" wx:for="{{list}}" wx:key="index"></view>
+</view>
+</view>
