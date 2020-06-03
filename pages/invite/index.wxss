@@ -17,23 +17,35 @@ page{
   flex-shrink: 0;
 }
 
-.image-wrapper{
-  display: flex;
+.view-wrapper{
   flex-shrink: 1;
   flex-grow: 1;
   height: 100rpx;
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.image-wrapper{
+  display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100vw;
-  overflow-x: auto;
-  padding: 0 44rpx;
+  padding: 0 42rpx;
   box-sizing: border-box;
+  height: 100%;
+  width: auto;
+  position: absolute;
+  left: -672rpx;
+  top: 0;
+  transition: .1s;
+  box-shadow:0px 6px 12px 0px rgba(0,0,0,0.1);
+
 }
 
 .image-wrapper .item{
   width: 630rpx;
   height: 81%;
-  margin: 0 18rpx;
+  padding: 0 18rpx;
 }
 
 .image-wrapper .item.active{
@@ -44,6 +56,7 @@ page{
   width: 630rpx;
   height:75%;
   display: block;
+  border-radius:8px 8px 0px 0px;
 }
 
 .bottom{
@@ -54,6 +67,7 @@ page{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  width: 630rpx;
 }
 
 .bottom .mini{
@@ -78,7 +92,7 @@ page{
 }
 
 .btns{
-  padding: 0 30rpx 30rpx 30rpx;
+  padding: 0 30rpx 0 30rpx;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
@@ -90,7 +104,7 @@ page{
   height:100%;
   box-shadow:0rpx 6rpx 12rpx 0rpx rgba(0,0,0,0.1);
   border-radius:6rpx;
-  font-size:34%;
+  font-size:32rpx;
   font-family:PingFangSC-Medium,PingFang SC;
   font-weight:500;
   text-shadow:0rpx 6rpx 12rpx rgba(0,0,0,0.1);
