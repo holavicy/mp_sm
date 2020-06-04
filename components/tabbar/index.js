@@ -42,6 +42,21 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    goUrl: function(e){
+      console.log(e.currentTarget.dataset);
+
+      let userInfoStr = wx.getStorageSync('userInfo') || '';
+      let userInfo = userInfoStr? JSON.parse(userInfoStr) :{};
+      if(userInfo.isRegister != 1){
+        wx.redirectTo({
+          url: '/pages/register/index',
+        })
+      } else {
+        wx.reLaunch({
+          url: e.currentTarget.dataset.url,
+        })
+      }
+    }
 
   }
 })

@@ -100,8 +100,16 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    console.log(res)
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '盛米咨询',
+      path: '/pages/home/index?id=123'
+    }
   },
 
   getList: function(){
@@ -156,5 +164,9 @@ Page({
     this.setData({
       left: left
     })
+  },
+
+  share: function(){
+
   }
 })

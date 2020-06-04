@@ -115,6 +115,8 @@ page{
 .btns .btn.left{
   background:#E8EDF1;
   color:rgba(2,60,106,1);
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .btns .btn.right{

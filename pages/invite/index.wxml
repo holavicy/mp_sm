@@ -12,8 +12,8 @@
             <image src="{{item.miniUrl}}" class="mini-img"></image>
           </view>
           <view class="btns">
-            <view class="btn left">分享</view>
-            <view class="btn right">保存图片</view>
+            <button class="btn left" open-type="share">分享</button>
+            <view class="btn right" bindtap="saveImg">保存图片</view>
           </view>
         </view>
       </view>
