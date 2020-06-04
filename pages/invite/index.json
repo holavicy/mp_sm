@@ -2,6 +2,5 @@
   "usingComponents": {
     "tabbar":"../../components/tabbar/index"
   },
-  "navigationBarTitleText":"邀请好友",
-  "disableScroll ": true
+  "navigationBarTitleText":"邀请好友"
 }

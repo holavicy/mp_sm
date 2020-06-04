@@ -110,7 +110,7 @@ Page({
     request(url, {}).then(res => {
       wx.hideLoading();
 
-      res.data.data = this.data.listMock;
+      // res.data.data = this.data.listMock;
       if(res && res.data && res.data.code == 200){
         this.setData({
           list: res.data.data
