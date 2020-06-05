@@ -1,6 +1,7 @@
 /* pages/invite/index.wxss */
 page{
   background-color: #F0F4FA;
+  overflow-y: hidden;
 }
 
 .invite{
@@ -122,4 +123,11 @@ page{
 .btns .btn.right{
   background:rgba(2,60,106,1);
   color:rgba(255,255,255,1);
+}
+
+.canvas {
+  width: 315px;
+  height: 520px;
+  background-color: #fff;
+  top: -100vh;
 }

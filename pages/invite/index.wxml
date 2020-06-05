@@ -2,7 +2,7 @@
 <view class="invite" catchtouchmove="{{true}}">
   <view class="view-wrapper">
     <view class="image-wrapper" style="left:{{left}}rpx">
-      <view class="item {{currIndex == index?'active':''}}" wx:for="{{list}}"
+      <view class="item {{currIndex == index?'active':''}}" wx:for="{{list}}" wx:key="index"
       bindtouchstart="touchstart"
       bindtouchend="touchend">
         <image src="{{item.posterUrl}}" class="main-img"></image>
@@ -19,5 +19,9 @@
       </view>
     </view>
   </view>
+
   <tabbar selectedIndex="1" class="tab-bar-wrapper"></tabbar>
 </view>
+
+  <view style='width:0px;height:0px;overflow:hidden;'>
+<canvas canvas-id="canvas" class="canvas"></canvas></view> 
