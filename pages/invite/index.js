@@ -7,8 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    canvasHidden: true,
     left:0,
     currIndex:0,
+    isIphoneX: app.globalData.isIphoneX,
     list:[],
     listMock:[
       {
@@ -124,7 +126,7 @@ Page({
     request(url, {}).then(res => {
       wx.hideLoading();
 
-      // res.data.data = this.data.listMock;
+      res.data.data = this.data.listMock;
       if(res && res.data && res.data.code == 200){
         this.setData({
           list: res.data.data
@@ -172,12 +174,15 @@ Page({
     })
   },
 
-  saveImg: function () {
-    var currData =  {
-      "miniUrl":"http://119.45.33.38:8080/images/dd/9.jpg",
-      "posterUrl":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590253732499&di=637083a9debac748cc250ab486acf67a&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3D8d2e43377aec54e741ec1a1689389bfd%2Fd2258013632762d05b126ab6a1ec08fa503dc6d1.jpg",
-      "posterId":"c333f865-d33a-4531-bd2c-6e9d35d20449"
-  }
+  saveImg: function (e) {
+    let index = e.currentTarget.dataset.index;
+    let currData = this.data.list[index];
+    // console.log(currData);
+  //   var currData =  {
+  //     "miniUrl":"http://119.45.33.38:8080/images/dd/9.jpg",
+  //     "posterUrl":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590253732499&di=637083a9debac748cc250ab486acf67a&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3D8d2e43377aec54e741ec1a1689389bfd%2Fd2258013632762d05b126ab6a1ec08fa503dc6d1.jpg",
+  //     "posterId":"c333f865-d33a-4531-bd2c-6e9d35d20449"
+  // }
   wx.showLoading({
     title: '海报生成中',
   })
@@ -189,41 +194,39 @@ Page({
 
     Promise.all([postPath,miniPath]).then( (res) => {
       context.setFillStyle('#ffffff');
-      context.fillRect(0, 440, 315, 80)
+      context.fillRect(0, 880, 630, 160)
       
 
-      context.drawImage(res[0], 0, 0, 315, 440);
-      context.drawImage(res[1], 235, 455, 50, 50);
+      context.drawImage(res[0], 0, 0, 630, 880);
+      context.drawImage(res[1], 470, 910, 100, 100);
+   
       context.setFillStyle('#023C6A');
-      context.setFontSize(12);
-      context.fillText('微信扫描二维码查看详情', 30, 484, 315);
-      context.draw();
-      wx.canvasToTempFilePath({
-        x:0,
-        y:0,
-        width:315,
-        height:520,
-        destWidth: 375,
-        destHeight:625,
-        canvasId: 'canvas',
-        quality: 0,
-        success: (res) => {
-          this.setData({
-            img: res.tempFilePath
-          })
-
-          app.saveImage(res.tempFilePath)
-        }
-      })
+      context.setFontSize(24);
+      context.fillText('微信扫描二维码查看详情', 60, 972, 264);
+      context.draw(true, setTimeout(()=>{
+        wx.canvasToTempFilePath({
+          x:0,
+          y:0,
+          width:630,
+          height:1040,
+          destWidth: 630,
+          destHeight:1040,
+          canvasId: 'canvas',
+          success: (res) => {
+            app.saveImage(res.tempFilePath)
+          }
+        })
+      },100));
+ 
     })
   },
 
   getImgTempPath: function(url){
     return new Promise((resolve, reject) => {
-      wx.downloadFile({
-        url: url,
+      wx.getImageInfo({
+        src: url,
         success: (res) => {
-          resolve(res.tempFilePath)
+          resolve(res.path)
         },
         fail: (e) => {
           console.log(e)

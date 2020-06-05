@@ -1,6 +1,7 @@
 <!--pages/invite/index.wxml-->
 <view class="invite" catchtouchmove="{{true}}">
   <view class="view-wrapper">
+  <canvas canvas-id="canvas"  style="width:630px;height:1040px;position:fixed;left:9000px;"></canvas>
     <view class="image-wrapper" style="left:{{left}}rpx">
       <view class="item {{currIndex == index?'active':''}}" wx:for="{{list}}" wx:key="index"
       bindtouchstart="touchstart"
@@ -13,15 +14,12 @@
           </view>
           <view class="btns">
             <button class="btn left" open-type="share">分享</button>
-            <view class="btn right" bindtap="saveImg">保存图片</view>
+            <view class="btn right" bindtap="saveImg" data-index="{{index}}">保存图片</view>
           </view>
         </view>
       </view>
     </view>
   </view>
 
-  <tabbar selectedIndex="1" class="tab-bar-wrapper"></tabbar>
+  <tabbar selectedIndex="1" class="tab-bar-wrapper {{isIphoneX<0?'':'iphonex'}}"></tabbar>
 </view>
-
-  <view style='width:0px;height:0px;overflow:hidden;'>
-<canvas canvas-id="canvas" class="canvas"></canvas></view> 

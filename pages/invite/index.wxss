@@ -18,6 +18,10 @@ page{
   flex-shrink: 0;
 }
 
+.tab-bar-wrapper.iphonex{
+  margin-top: 51rpx;
+}
+
 .view-wrapper{
   flex-shrink: 1;
   flex-grow: 1;
@@ -126,8 +130,9 @@ page{
 }
 
 .canvas {
-  width: 315px;
-  height: 520px;
+  width: 630px;
+  height: 1040px;
   background-color: #fff;
   top: -100vh;
+  position: fixed;
 }

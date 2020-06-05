@@ -69,7 +69,6 @@ function getUserInfo() {
   return new Promise((resolve, reject) => {
     let url = '/user/info';
     request(url, {}).then((res) => {
-      console.log(res);
       //将用户信息存储到storage
       if(res&&res.data&&res.data.code == 200){
         let userInfo = res.data.data;
