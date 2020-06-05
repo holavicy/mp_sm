@@ -50,7 +50,7 @@ Page({
    */
   onLoad: function (options) {
     //进入首页先判断连接上是否有邀请码，若有说明是通过他人分享的连接进入，则存储
-    let oriCode = options.oriCode || '';
+    let oriCode = options.rc || '';
     wx.setStorageSync('oriCode', oriCode)
     login();
   },

@@ -47,3 +47,23 @@ page{
 .info .item .right{
   margin-right: 30rpx;
 }
+
+.list{
+  background-color: #ffffff;
+  padding: 41rpx 30rpx 18rpx 30rpx;
+}
+
+.list .header{
+  margin-bottom: 23rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
+
+.list .item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 66rpx;
+}

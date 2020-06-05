@@ -31,5 +31,12 @@
       <view class="right">{{userInfo.idCard}}</view>
     </view>
   </view>
-  <view class="list"></view>
+  <view class="list">
+    <view class="header">我的保单</view>
+    <view class="item" wx:for="{{list}}" wx:key="index">
+    <view class="">{{item.policy}}</view>
+    <view class="">{{item.coverageEffectiveDate}}</view>
+    <view class="">{{item.coverageExpirationDate}}</view>
+    </view>
+  </view>
 </view>

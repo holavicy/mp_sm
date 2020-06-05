@@ -37,7 +37,6 @@ Page({
       } else {
         this.getUserInfo();
         this.getJFNum();
-        this.getBDList();
       }
     });
   },
@@ -94,17 +93,6 @@ Page({
       }
 
       
-    })
-  },
-
-  //获取我的保单列表
-  getBDList: function(){
-    // /policy/myPolicyList
-
-    let url = '/policy/myPolicyList';
-
-    request(url, {}).then(res => {
-      console.log(res);
     })
   }
 })

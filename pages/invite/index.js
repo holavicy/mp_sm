@@ -114,9 +114,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
+    let myInfoStr = wx.getStorageSync('userInfo');
+    let userInfo = JSON.parse(myInfoStr);
+    console.log(userInfo.referralCode)
     return {
       title: '盛米咨询',
-      path: '/pages/home/index?id=123'
+      path: '/pages/home/index?rc='+userInfo.referralCode
     }
   },
 

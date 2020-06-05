@@ -1,4 +1,5 @@
 // pages/myInfo/index.js
+import{ request } from '../../common/interface'
 Page({
 
   /**
@@ -31,6 +32,8 @@ Page({
     this.setData({
       userInfo: userInfo
     })
+
+    this.getBDList();
   },
 
   /**
@@ -66,5 +69,20 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+    //获取我的保单列表
+    getBDList: function(){
+      // /policy/myPolicyList
+  
+      let url = '/policy/myPolicyList';
+  
+      request(url, {}).then(res => {
+
+        this.setData({
+          list: res.data.data
+        })
+        console.log(res);
+      })
+    }
 })
