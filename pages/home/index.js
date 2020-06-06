@@ -12,7 +12,7 @@ Page({
     str:'', //搜索输入的内容
     page: 0,
     pageSize: 5,
-    totalNum: 0,
+    totalNum: -1,
     goodsList:[],
     goodsListMock:[{
         "id":1,
@@ -119,8 +119,8 @@ Page({
     request(url, {}, 'POST').then(res => {
       wx.hideLoading()
 
-      // res.data.data.items = this.data.goodsListMock;
-      // res.data.data.totalCount = 23;
+      // res.data.data.items = [];
+      // res.data.data.totalCount = 0;
 
       if(res && res.data && res.data.code == 200){
         let goodsList = this.data.goodsList;

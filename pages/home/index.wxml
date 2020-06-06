@@ -32,6 +32,7 @@
         发布时间：{{foo.fomatTime(item.updateTime)}}
       </view>
     </view>
+    <image src="../../images/empty.png" class="empty" wx:if="{{totalNum == 0}}"></image>
   </view>
 
   <view class="right-bottom {{isX ?'iphoneX':''}}">

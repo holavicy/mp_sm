@@ -108,3 +108,8 @@
   width: 60rpx;
   height: 60rpx;
 }
+
+.empty{
+  width: 690rpx;
+  height: 690rpx;
+}
