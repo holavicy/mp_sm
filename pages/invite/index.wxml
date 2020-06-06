@@ -2,10 +2,11 @@
 <view class="invite" catchtouchmove="{{true}}">
   <view class="view-wrapper">
   <canvas canvas-id="canvas"  style="width:630px;height:1040px;position:fixed;left:9000px;"></canvas>
-    <view class="image-wrapper" style="left:{{left}}rpx">
-      <view class="item {{currIndex == index?'active':''}}" wx:for="{{list}}" wx:key="index"
+    <view class="image-wrapper" style="left:{{left}}px">
+      <view id="item{{index}}" class="item {{currIndex == index?'active':''}}" wx:for="{{list}}" wx:key="index"
       bindtouchstart="touchstart"
-      bindtouchend="touchend">
+      bindtouchend="touchend"
+      bindtouchmove="touchmove">
         <image src="{{item.posterUrl}}" class="main-img"></image>
         <view class="bottom">
           <view class="mini">

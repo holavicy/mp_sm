@@ -43,7 +43,6 @@ page{
   left: -672rpx;
   top: 0;
   transition: .1s;
-  box-shadow:0px 6px 12px 0px rgba(0,0,0,0.1);
 
 }
 
@@ -55,6 +54,7 @@ page{
 
 .image-wrapper .item.active{
   height: 93%;
+  transition: .1s;
 }
 
 .main-img{

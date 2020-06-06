@@ -40,7 +40,7 @@ function getLoginCode(){
 }
 
 function request (relativeUrl,paramData,method) {
-  let url = HOST + relativeUrl;
+  let url = HOST + '/miniApi' + relativeUrl;
   var Authorization = wx.getStorageSync('Authorization') || '';
   return new Promise((resolve, reject) => {
     wx.request({

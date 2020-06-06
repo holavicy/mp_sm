@@ -14,6 +14,7 @@ Page({
     pageSize: 5,
     totalNum: -1,
     goodsList:[],
+    showCart: false,
     goodsListMock:[{
         "id":1,
         "name":'出国留学，保险必备',
@@ -60,6 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.ifShowShopCart();
     this.getGoodsList();
     this.setData({
       page: 0,
@@ -119,8 +121,8 @@ Page({
     request(url, {}, 'POST').then(res => {
       wx.hideLoading()
 
-      // res.data.data.items = [];
-      // res.data.data.totalCount = 0;
+      // res.data.data.items = this.data.goodsListMock;
+      // res.data.data.totalCount = 23;
 
       if(res && res.data && res.data.code == 200){
         let goodsList = this.data.goodsList;
@@ -131,6 +133,19 @@ Page({
         })
       }
     }) 
+  },
+
+  ifShowShopCart: function(){
+    let url = '/shopping/showCart'
+    request(url, {}).then( res => {
+      console.log(res);
+
+      if(res.data.data.showCart != 0){
+        this.setData({
+          showCart:true
+        })
+      }
+    })
   },
 
   bindblurStr: function(e){

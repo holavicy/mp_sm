@@ -37,6 +37,56 @@ Page({
         miniUrl: "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJjwoVkYEZomhfLkJB7qGA1PlR1ia2Fr14BCdCXwdXM8PMbOHYicfMQr0fgIKKk82ALYIHwh4ziaJ6Vg/132",
         posterId: "c333f865-d33a-4531-bd2c-6e9d35d20449",
         posterUrl: "http://119.45.33.38:8080/images/dd/5.png"
+      },
+      {
+        miniUrl: "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJjwoVkYEZomhfLkJB7qGA1PlR1ia2Fr14BCdCXwdXM8PMbOHYicfMQr0fgIKKk82ALYIHwh4ziaJ6Vg/132",
+        posterId: "c333f865-d33a-4531-bd2c-6e9d35d20449",
+        posterUrl: "http://119.45.33.38:8080/images/dd/5.png"
+      },
+      {
+        miniUrl: "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJjwoVkYEZomhfLkJB7qGA1PlR1ia2Fr14BCdCXwdXM8PMbOHYicfMQr0fgIKKk82ALYIHwh4ziaJ6Vg/132",
+        posterId: "c333f865-d33a-4531-bd2c-6e9d35d20449",
+        posterUrl: "http://119.45.33.38:8080/images/dd/5.png"
+      },
+      {
+        miniUrl: "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJjwoVkYEZomhfLkJB7qGA1PlR1ia2Fr14BCdCXwdXM8PMbOHYicfMQr0fgIKKk82ALYIHwh4ziaJ6Vg/132",
+        posterId: "c333f865-d33a-4531-bd2c-6e9d35d20449",
+        posterUrl: "http://119.45.33.38:8080/images/dd/5.png"
+      },
+      {
+        miniUrl: "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJjwoVkYEZomhfLkJB7qGA1PlR1ia2Fr14BCdCXwdXM8PMbOHYicfMQr0fgIKKk82ALYIHwh4ziaJ6Vg/132",
+        posterId: "c333f865-d33a-4531-bd2c-6e9d35d20449",
+        posterUrl: "http://119.45.33.38:8080/images/dd/5.png"
+      },
+      {
+        miniUrl: "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJjwoVkYEZomhfLkJB7qGA1PlR1ia2Fr14BCdCXwdXM8PMbOHYicfMQr0fgIKKk82ALYIHwh4ziaJ6Vg/132",
+        posterId: "c333f865-d33a-4531-bd2c-6e9d35d20449",
+        posterUrl: "http://119.45.33.38:8080/images/dd/5.png"
+      },
+      {
+        miniUrl: "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJjwoVkYEZomhfLkJB7qGA1PlR1ia2Fr14BCdCXwdXM8PMbOHYicfMQr0fgIKKk82ALYIHwh4ziaJ6Vg/132",
+        posterId: "c333f865-d33a-4531-bd2c-6e9d35d20449",
+        posterUrl: "http://119.45.33.38:8080/images/dd/5.png"
+      },
+      {
+        miniUrl: "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJjwoVkYEZomhfLkJB7qGA1PlR1ia2Fr14BCdCXwdXM8PMbOHYicfMQr0fgIKKk82ALYIHwh4ziaJ6Vg/132",
+        posterId: "c333f865-d33a-4531-bd2c-6e9d35d20449",
+        posterUrl: "http://119.45.33.38:8080/images/dd/5.png"
+      },
+      {
+        miniUrl: "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJjwoVkYEZomhfLkJB7qGA1PlR1ia2Fr14BCdCXwdXM8PMbOHYicfMQr0fgIKKk82ALYIHwh4ziaJ6Vg/132",
+        posterId: "c333f865-d33a-4531-bd2c-6e9d35d20449",
+        posterUrl: "http://119.45.33.38:8080/images/dd/5.png"
+      },
+      {
+        miniUrl: "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJjwoVkYEZomhfLkJB7qGA1PlR1ia2Fr14BCdCXwdXM8PMbOHYicfMQr0fgIKKk82ALYIHwh4ziaJ6Vg/132",
+        posterId: "c333f865-d33a-4531-bd2c-6e9d35d20449",
+        posterUrl: "http://119.45.33.38:8080/images/dd/5.png"
+      },
+      {
+        miniUrl: "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJjwoVkYEZomhfLkJB7qGA1PlR1ia2Fr14BCdCXwdXM8PMbOHYicfMQr0fgIKKk82ALYIHwh4ziaJ6Vg/132",
+        posterId: "c333f865-d33a-4531-bd2c-6e9d35d20449",
+        posterUrl: "http://119.45.33.38:8080/images/dd/5.png"
       }
   ]
   },
@@ -51,17 +101,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.getSystemInfo({
-      success (res) {
-        console.log(res.model)
-        console.log(res.pixelRatio)
-        console.log(res.windowWidth)
-        console.log(res.windowHeight)
-        console.log(res.language)
-        console.log(res.version)
-        console.log(res.platform)
-      }
-    })
+
   },
 
   /**
@@ -83,34 +123,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
@@ -129,23 +141,38 @@ Page({
     request(url, {}).then(res => {
       wx.hideLoading();
 
-      // res.data.data = this.data.listMock;
+      res.data.data = this.data.listMock;
       if(res && res.data && res.data.code == 200){
         this.setData({
           list: res.data.data
+        })
+
+        const query = wx.createSelectorQuery();
+
+        this.data.list.forEach((item, index) => {
+          let itemId="#item"+index;
+          query.select(itemId).boundingClientRect();
+        })
+
+        query.exec(res => {
+          this.setData({
+            queryRes: res
+          })
         })
       }
     }) 
   },
 
-  //滑动事件
+  //滑动开始事件
   touchstart: function(event){
+    console.log(event)
     let startX = event.changedTouches[0].pageX;
     this.setData({
       startX: startX
     })
   },
 
+  //滑动结束事件
   touchend: function(event){
     let endX = event.changedTouches[0].pageX;
     let startX = this.data.startX;
@@ -169,12 +196,19 @@ Page({
     }
 
     if (currIndex>0){
-      left =0- (666 * currIndex)
+      left = 0 - (this.data.queryRes[currIndex].left-this.data.queryRes[0].left);
     }
+
+    
 
     this.setData({
       left: left
     })
+  },
+
+  //滑动事件
+  touchmove: function(event){
+    console.log(event)
   },
 
   saveImg: function (e) {
