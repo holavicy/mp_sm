@@ -199,8 +199,6 @@ Page({
       left = 0 - (this.data.queryRes[currIndex].left-this.data.queryRes[0].left);
     }
 
-    
-
     this.setData({
       left: left
     })
@@ -208,7 +206,26 @@ Page({
 
   //滑动事件
   touchmove: function(event){
-    console.log(event)
+    // console.log(event);
+
+    let initLeft = 0;
+    let currIndex = this.data.currIndex;
+
+    if (currIndex>0){
+      initLeft = 0 - (this.data.queryRes[currIndex].left-this.data.queryRes[0].left);
+    }
+
+
+    let x = event.touches[0].clientX;
+
+    let startX = this.data.startX;
+
+    let moveleft = initLeft+(x-startX);
+
+    this.setData({
+      left: moveleft
+    })
+
   },
 
   saveImg: function (e) {
