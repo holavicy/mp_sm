@@ -43,7 +43,7 @@ App({
 
   globalData: {
     userInfo: null,
-    isIphoneX: wx.getSystemInfoSync().model.indexOf("iPhone X")
+    isIphoneX: wx.getSystemInfoSync().model.indexOf("iPhone X")>=0?true:false
   },
 
   //保存图片

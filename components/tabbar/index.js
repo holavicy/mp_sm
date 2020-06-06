@@ -20,8 +20,7 @@ Component({
         "pagePath": "/pages/home/index",
         "iconPath": "icons/icon_home.png",
         "selectedIconPath": "icons/icon_home_HL.png",
-        "text": "首页",
-        "selected":true
+        "text": "首页"
       },
       {
         "pagePath": "/pages/invite/index",
@@ -43,7 +42,6 @@ Component({
    */
   methods: {
     goUrl: function(e){
-      console.log(e.currentTarget.dataset);
 
       let userInfoStr = wx.getStorageSync('userInfo') || '';
       let userInfo = userInfoStr? JSON.parse(userInfoStr) :{};

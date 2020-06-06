@@ -232,7 +232,12 @@ Page({
           resolve(res.path)
         },
         fail: (e) => {
-          console.log(e)
+          console.log(e);
+
+          wx.showToast({
+            title: '图片路径无效',
+            icon: 'none'
+          })
         }
         
       })

@@ -3,7 +3,6 @@
   background-color:#ffffff;
   width: 100vw;
   height: 100vh;
-  margin-bottom: 98rpx;
   position: relative;
 }
 
@@ -12,11 +11,9 @@
   height: 64rpx;
   background:rgba(245,245,245,1);
   border-radius:32rpx;
-  margin: 0 auto;
+  margin: 28rpx auto;
   display: flex;
   align-items: center;
-  margin-top: 28rpx;
-  margin-bottom: 48rpx;
 }
 
 .search-wrapper image{
@@ -36,7 +33,12 @@
 .goods-list{
   width: 690rpx;
   margin: 0 auto;
-  padding-bottom: 128rpx;
+  padding-bottom: 170rpx;
+  padding-top: 20rpx;
+}
+
+.goods-list.iphonex{
+  padding-bottom: 223rpx;
 }
 
 .goods-item {
@@ -79,18 +81,30 @@
   overflow: hidden;
 }
 
-.shop-cart{
+.right-bottom{
   position: fixed;
-  right: 24rpx;
-  bottom: 158rpx;
+  right: 31rpx;
+  bottom: 208rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.shop-cart.iphoneX{
-  bottom: 226rpx;
+.right-bottom.iphoneX{
+  bottom: 261rpx;
 }
 
 .shop-cart image{
-  width: 132rpx;
-  height: 132rpx;
+  width: 120rpx;
+  height: 120rpx;
   display: block;
+}
+
+.to-top{
+  margin-bottom: 48rpx;
+}
+
+.to-top image{
+  width: 60rpx;
+  height: 60rpx;
 }

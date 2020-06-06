@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isX: app.globalData.isIphoneX,
     str:'', //搜索输入的内容
     page: 0,
     pageSize: 5,
@@ -63,15 +64,23 @@ Page({
     this.setData({
       page: 0,
       goodsList: [],
-      isX: app.globalData.isIphoneX
+      
     })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+  onPageScroll({scrollTop}){
+    console.log(scrollTop);
 
+    this.setData({
+      scrollTop:scrollTop
+    })
+  },
+
+  scrollToTop: function(){
+    wx.pageScrollTo({
+      duration: 200,
+      scrollTop: 0
+    })
   },
 
   /**
@@ -83,7 +92,6 @@ Page({
     let totalNum = this.data.totalNum;
     let page = this.data.page;
     let maxPage = Math.ceil(totalNum/pageSize); 
-    console.log(page,maxPage-1)
     if (page<maxPage-1){
       page++;
       this.setData({
@@ -110,7 +118,9 @@ Page({
 
     request(url, {}, 'POST').then(res => {
       wx.hideLoading()
-      console.log(res);
+
+      // res.data.data.items = this.data.goodsListMock;
+      // res.data.data.totalCount = 23;
 
       if(res && res.data && res.data.code == 200){
         let goodsList = this.data.goodsList;
@@ -124,7 +134,6 @@ Page({
   },
 
   bindblurStr: function(e){
-    console.log(e);
 
     let value = e.detail.value;
     this.setData({
@@ -139,9 +148,7 @@ Page({
     let goodsList = this.data.goodsList;
     let index = e.currentTarget.dataset.index;
 
-
     let url = goodsList[index].content.articles[0].url;
-    console.log(url);
 
     url = encodeURIComponent(url);
     wx.navigateTo({
