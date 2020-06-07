@@ -85,8 +85,15 @@ Page({
 
   //保存图片
   saveImg: function(){
-    let filePath = '/images/accounts.jpg';
-    app.saveImage(filePath);
+    // let filePath = '/images/accounts.jpg';
+    // app.saveImage(filePath);
+
+    wx.getImageInfo({
+      src: this.data.imgUrl,
+      success: (res) => {
+        app.saveImage(res.path);
+      }
+    })
   },
 
   getInfo: function(){
