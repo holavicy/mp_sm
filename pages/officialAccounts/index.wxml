@@ -2,7 +2,7 @@
 <view class="official-accounts">
   <view class="wrapper">
     <view class="img-wrapper">
-      <image src="../../images/accounts.jpg"></image>
+      <image src="{{imgUrl}}"></image>
       <view class="text">微信扫码/搜索微信号关注公众号</view>
     </view>
     <view class="blank-wrapper">

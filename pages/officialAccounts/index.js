@@ -1,3 +1,5 @@
+import { request } from "../../common/interface";
+
 // pages/officialAccounts/index.js
 var app = getApp();
 Page({
@@ -6,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    officialAccount:'dwh223233'
+    officialAccount:'',
+    imgUrl: ''
   },
 
   /**
@@ -27,7 +30,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getInfo();
   },
 
   /**
@@ -84,5 +87,18 @@ Page({
   saveImg: function(){
     let filePath = '/images/accounts.jpg';
     app.saveImage(filePath);
+  },
+
+  getInfo: function(){
+    let url = '/common/offiaccountInfo';
+
+    request(url, {}).then((res) => {
+      console.log(res);
+
+      this.setData({
+        officialAccount: res.data.data.account,
+        imgUrl: res.data.data.codeUrl
+      })
+    })
   }
 })
