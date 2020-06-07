@@ -71,7 +71,6 @@ Page({
   },
 
   onPageScroll({scrollTop}){
-    console.log(scrollTop);
 
     this.setData({
       scrollTop:scrollTop
@@ -138,7 +137,6 @@ Page({
   ifShowShopCart: function(){
     let url = '/shopping/showCart'
     request(url, {}).then( res => {
-      console.log(res);
 
       if(res.data.data.showCart != 0){
         this.setData({

@@ -65,7 +65,6 @@ Page({
   getCal: function(){
     let url = '/sign/myCalendar';
     request(url, {}).then((res) => {
-      console.log(res);
 
       if(res && res.data && res.data.code == 200){
         let data = res.data.data;
@@ -93,7 +92,6 @@ Page({
 
     let url = '/sign/doSign';
     request(url, {}).then((res) => {
-      console.log(res);
 
       if(res && res.data && res.data.code == 200){
         wx.showToast({

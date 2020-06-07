@@ -82,7 +82,7 @@ Page({
   getJFNum: function(){
     let url = '/integral/myIntegralCount';
     request(url, {}).then((res) => {
-      console.log(res);
+
 
       if(res && res.data && res.data.code == 200){
         let userInfo = this.data.userInfo;
