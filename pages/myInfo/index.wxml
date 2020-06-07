@@ -44,11 +44,16 @@
       <view class="left">身份证号</view>
       <view class="right">{{userInfo.idCard}}</view>
     </view>
+
+    <view class="item" wx:if="{{userInfo.srid}}">
+      <view class="left">SRID</view>
+      <view class="right">{{userInfo.srid}}</view>
+    </view>
   </view>
   <view class="list" wx:if="{{list.length>0}}">
     <view class="header">我的保单</view>
     <view class="item" wx:for="{{list}}" wx:key="index">
-      <view class="name">{{item.policy}}</view>
+      <view class="name">{{item.campusLocationDesc}}</view>
       <view class="time"><text>{{foo.fomatTime(item.coverageEffectiveDate)}}</text>-<text>{{foo.fomatTime(item.coverageExpirationDate)}}</text></view>
     </view>
   </view>

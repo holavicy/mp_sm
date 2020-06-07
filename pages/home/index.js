@@ -142,7 +142,8 @@ Page({
 
       if(res.data.data.showCart != 0){
         this.setData({
-          showCart:true
+          showCart:true,
+          shopCartUrl: res.data.data.showUrl
         })
       }
     })
@@ -164,6 +165,15 @@ Page({
     let index = e.currentTarget.dataset.index;
 
     let url = goodsList[index].content.articles[0].url;
+
+    url = encodeURIComponent(url);
+    wx.navigateTo({
+      url: '/pages/webView/index?url='+url,
+    })
+  },
+
+  goto: function(){
+    let url = this.data.shopCartUrl;
 
     url = encodeURIComponent(url);
     wx.navigateTo({

@@ -52,7 +52,7 @@
 
 .goods-item image{
   width: 690rpx;
-  height: 200rpx;
+  height: 210rpx;
   display: block;
   border-radius: 8rpx 8rpx 0 0;
 }
