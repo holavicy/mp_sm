@@ -18,12 +18,22 @@
   z-index: 1;
 }
 
+.nav-wrapper{
+  width: 45rpx;
+  height: 45rpx;
+  margin-left: 33rpx;
+  display: flex;
+
+  align-items: center;
+
+}
+
 .arrow-left-nav{
   width:25rpx;
   height:25rpx;
   border-left: 4rpx solid #ffffff;
   border-bottom: 4rpx solid #ffffff;
-  margin-left: 33rpx;
+  /* margin-left: 33rpx; */
   box-sizing: border-box;
   transform: rotate(45deg);
   z-index: 3;

@@ -1,4 +1,18 @@
 <!--pages/myInfo/index.wxml-->
+<wxs module="foo">
+  var fomatTime = function(str){
+    var time = '';
+    if(str){
+    var timeList = str.split('-');
+    time = timeList[0] + '.' + parseInt(timeList[1]) + '.' + parseInt(timeList[2]);
+    }
+
+    return time
+  }
+  module.exports = {
+    fomatTime : fomatTime
+  }
+</wxs>
 <view class="my-info">
   <view class="top">
     <image src="{{userInfo.avatar}}"></image>
@@ -18,7 +32,7 @@
 
     <view class="item">
       <view class="left">生日</view>
-      <view class="right">{{userInfo.birthday}}</view>
+      <view class="right">{{foo.fomatTime(userInfo.birthday)}}</view>
     </view>
 
     <view class="item">
@@ -31,12 +45,11 @@
       <view class="right">{{userInfo.idCard}}</view>
     </view>
   </view>
-  <view class="list">
+  <view class="list" wx:if="{{list.length>0}}">
     <view class="header">我的保单</view>
     <view class="item" wx:for="{{list}}" wx:key="index">
-    <view class="">{{item.policy}}</view>
-    <view class="">{{item.coverageEffectiveDate}}</view>
-    <view class="">{{item.coverageExpirationDate}}</view>
+      <view class="name">{{item.policy}}</view>
+      <view class="time"><text>{{foo.fomatTime(item.coverageEffectiveDate)}}</text>-<text>{{foo.fomatTime(item.coverageExpirationDate)}}</text></view>
     </view>
   </view>
 </view>

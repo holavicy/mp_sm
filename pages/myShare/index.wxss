@@ -5,8 +5,11 @@ page{
   height: 100%;
 }
 
-.my-share .header{
+.my-share{
+  padding-bottom: 30rpx;
+}
 
+.my-share .header{
   font-size:30rpx;
   font-family:PingFangSC-Regular,PingFang SC;
   font-weight:400;

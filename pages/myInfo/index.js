@@ -6,7 +6,54 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: null
+    userInfo: null,
+    listMock: [
+      {
+        "policy": "122-900",
+        "coverageEffectiveDate": "2020-06-04",
+        "coverageExpirationDate": "2020-12-05",
+      },
+      {
+        "policy": "122-900",
+        "coverageEffectiveDate": "2020-06-04",
+        "coverageExpirationDate": "2020-12-05",
+      },
+      {
+        "policy": "122-900",
+        "coverageEffectiveDate": "2020-06-04",
+        "coverageExpirationDate": "2020-12-05",
+      },
+      {
+        "policy": "122-900",
+        "coverageEffectiveDate": "2020-06-04",
+        "coverageExpirationDate": "2020-12-05",
+      },
+      {
+        "policy": "122-900",
+        "coverageEffectiveDate": "2020-06-04",
+        "coverageExpirationDate": "2020-12-05",
+      },
+      {
+        "policy": "122-900",
+        "coverageEffectiveDate": "2020-06-04",
+        "coverageExpirationDate": "2020-12-05",
+      },
+      {
+        "policy": "122-900",
+        "coverageEffectiveDate": "2020-06-04",
+        "coverageExpirationDate": "2020-12-05",
+      },
+      {
+        "policy": "122-900",
+        "coverageEffectiveDate": "2020-06-04",
+        "coverageExpirationDate": "2020-12-05",
+      },
+      {
+        "policy": "122-900",
+        "coverageEffectiveDate": "2020-06-04",
+        "coverageExpirationDate": "2020-12-05",
+      }
+    ]
   },
 
   /**
@@ -78,6 +125,8 @@ Page({
       let url = '/policy/myPolicyList';
   
       request(url, {}).then(res => {
+
+        // res.data.data = [];
 
         this.setData({
           list: res.data.data

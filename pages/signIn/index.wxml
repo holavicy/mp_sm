@@ -35,7 +35,7 @@
     </view>
   </view>
 
-  <view class="sign-in-btn {{hasSignedToday?'disabled':''}}" bindtap="sign">立即签到</view>
+  <view class="sign-in-btn {{hasSignedToday?'disabled':''}}" bindtap="sign">{{hasSignedToday?'已签到':'立即签到'}}</view>
   
   <view class="rule">
   <view class="header">规则说明</view>

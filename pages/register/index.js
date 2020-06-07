@@ -13,7 +13,7 @@ Page({
     birthday:'',
     idCard:'',
     tel:'',
-    type:1,
+    type:3,
     remCode:'',
     avatarUrl: '',
     nickName: ''
@@ -127,6 +127,19 @@ Page({
   setType: function(e){
     let type = e.target.dataset.type;
     type = Number(type);
+
+    if( type != 3){
+      this.setData({
+        remCode:''
+      })
+    } else {
+      let oriCode = wx.getStorageSync('oriCode');
+      if(oriCode){
+        this.setData({
+          remCode: oriCode
+        })
+      }
+    }
     this.setData({
       type:type
     })
@@ -223,6 +236,10 @@ Page({
       recommenderReferralCode: remCode,
       sex: sex,
       tel: tel
+    }
+
+    if(type != 3){
+      data.recommenderReferralCode=''
     }
 
     let url = '/user/register';

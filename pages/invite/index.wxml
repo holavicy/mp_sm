@@ -21,6 +21,8 @@
         </view>
       </view>
     </view>
+
+    <image src="../../images/empty.png" wx:if="{{listLength == 0}}" class="empty"></image>
   </view>
 
   <tabbar selectedIndex="1" class="tab-bar-wrapper {{isIphoneX<0?'':'iphonex'}}"></tabbar>

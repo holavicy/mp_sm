@@ -8,8 +8,49 @@ Page({
   data: {
     list:[],
     page: 0,
-    pageSize: 5,
-    totalNum: 0,
+    pageSize: 10,
+    totalNum: -1,
+    listMock: [{
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },
+    {
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },
+    {
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },
+    {
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },
+    {
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },
+    {
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },
+    {
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },
+    {
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },
+    {
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },
+    {
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    }
+  ]
   },
 
   /**
@@ -92,7 +133,9 @@ Page({
 
     request(url, data).then((res) => {
       wx.hideLoading();
-      console.log(res);
+      // console.log(res);
+      // res.data.data.rows = this.data.listMock;
+      // res.data.data.total =22;
       if(res && res.data && res.data.code == 200){
         let list = this.data.list;
         list = list.concat(res.data.data.rows);

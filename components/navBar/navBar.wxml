@@ -2,9 +2,7 @@
   <image src="{{bg}}" wx:if="{{bg}}" class="bg"></image>
   <view class='status' style='height: {{status}}px;{{containerStyle}}'></view>
   <view class='navbar' style='height:{{navHeight}}px;{{containerStyle}}'>
-  
-    <view class="arrow-left-nav" wx:if="{{back}}" bindtap="navBack"></view>
-     
+    <view class="nav-wrapper" bindtap="navBack"><view class="arrow-left-nav" wx:if="{{back}}" ></view></view>
     <view class='nav-title' wx:if="{{titleText}}">
         <text style='{{textStyle}}'>{{titleText}}</text>
     </view>

@@ -136,3 +136,9 @@ page{
   top: -100vh;
   position: fixed;
 }
+
+.empty{
+  width: 690rpx;
+  height: 690rpx;
+  margin: 0 auto;
+}

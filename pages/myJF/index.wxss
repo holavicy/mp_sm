@@ -4,6 +4,10 @@ page{
   height: 100%;
 }
 
+.my-jf{
+  padding-bottom: 30rpx;
+}
+
 .top-wrapper{
   height: 424rpx;
   background:linear-gradient(180deg,rgba(2,60,106,1) 0%,rgba(240,244,250,1) 100%);

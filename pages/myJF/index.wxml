@@ -35,5 +35,7 @@
       <view class="sub-info">积分获得时间：{{foo.fomatTime(item.optDate)}}</view>
       </view>
     </view>
+
+    <image src="../../images/empty.png" class="empty" wx:if="{{totalNum == 0}}"></image>
   </view>
 </view>

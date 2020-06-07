@@ -12,6 +12,7 @@ Page({
     currIndex:0,
     isIphoneX: app.globalData.isIphoneX,
     list:[],
+    listLength:-1,
     listMock:[
       {
       miniUrl: "https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJjwoVkYEZomhfLkJB7qGA1PlR1ia2Fr14BCdCXwdXM8PMbOHYicfMQr0fgIKKk82ALYIHwh4ziaJ6Vg/132",
@@ -140,11 +141,12 @@ Page({
     let url = '/poster/posterList';
     request(url, {}).then(res => {
       wx.hideLoading();
-
-      res.data.data = this.data.listMock;
+      // res.data.data=[]
+      // res.data.data = this.data.listMock;
       if(res && res.data && res.data.code == 200){
         this.setData({
-          list: res.data.data
+          list: res.data.data,
+          listLength:res.data.data.length
         })
 
         const query = wx.createSelectorQuery();
@@ -165,7 +167,7 @@ Page({
 
   //滑动开始事件
   touchstart: function(event){
-    console.log(event)
+    // console.log(event)
     let startX = event.changedTouches[0].pageX;
     this.setData({
       startX: startX
@@ -237,9 +239,9 @@ Page({
   //     "posterUrl":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590253732499&di=637083a9debac748cc250ab486acf67a&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3D8d2e43377aec54e741ec1a1689389bfd%2Fd2258013632762d05b126ab6a1ec08fa503dc6d1.jpg",
   //     "posterId":"c333f865-d33a-4531-bd2c-6e9d35d20449"
   // }
-  wx.showLoading({
-    title: '海报生成中',
-  })
+    wx.showLoading({
+      title: '海报生成中',
+    })
 
     var context = wx.createCanvasContext('canvas');
 
@@ -250,7 +252,6 @@ Page({
       context.setFillStyle('#ffffff');
       context.fillRect(0, 880, 630, 160)
       
-
       context.drawImage(res[0], 0, 0, 630, 880);
       context.drawImage(res[1], 470, 910, 100, 100);
    
@@ -268,6 +269,12 @@ Page({
           canvasId: 'canvas',
           success: (res) => {
             app.saveImage(res.tempFilePath)
+          },
+          fail: ()=>{
+            wx.showToast({
+              title: '海报生成失败，请稍后再试',
+              icon: 'none'
+            })
           }
         })
       },100));

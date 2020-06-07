@@ -10,11 +10,13 @@
   }
 </wxs>
 <view class="my-share">
-  <view class="header">推荐列表 (<text class="num">{{totalNum}}</text>)</view>
+  <view class="header" wx:if="{{totalNum>0}}">推荐列表 (<text class="num">{{totalNum}}</text>)</view>
   <view class="share-list">
     <view class="item" wx:for="{{list}}" wx:key="index">
       <view class="left">{{item.cutsomerName}}</view>
-      <view class="right">推荐时间：<text class="time">{{foo.fomatTime(item.registerTime)}}</text> </view>
+      <view class="right">推荐时间：<text class="time">{{item.registerTime}}</text> </view>
     </view>
   </view>
+
+  <image src="../../images/empty.png" class="empty" wx:if="{{totalNum == 0}}"></image>
 </view>
