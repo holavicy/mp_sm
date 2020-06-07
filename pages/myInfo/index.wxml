@@ -16,7 +16,7 @@
 <view class="my-info">
   <view class="top">
     <image src="{{userInfo.avatar}}"></image>
-    <view>推荐码：{{userInfo.referralCode}}</view>
+    <view>我的推荐码：{{userInfo.referralCode}}</view>
   </view>
   <view class="info">
 
