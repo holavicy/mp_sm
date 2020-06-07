@@ -51,10 +51,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const scene = decodeURIComponent(options.scene);
     //进入首页先判断连接上是否有邀请码，若有说明是通过他人分享的连接进入，则存储
     let oriCode = options.rc || '';
+    if(scene){
+      oriCode = scene.rc || ''
+    }
     wx.setStorageSync('oriCode', oriCode)
     login();
+
   },
 
   /**
