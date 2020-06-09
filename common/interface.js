@@ -1,5 +1,5 @@
 const baseUrl = {
-  test: 'https://pintu.aibal.top',
+  test: 'https://test.aibal.top',
   online: ''
 }
 
