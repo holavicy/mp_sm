@@ -52,11 +52,15 @@ Page({
    */
   onLoad: function (options) {
     const scene = decodeURIComponent(options.scene);
+    console.log(scene)
+    console.log(JSON.stringify(scene))
     //进入首页先判断连接上是否有邀请码，若有说明是通过他人分享的连接进入，则存储
     let oriCode = options.rc || '';
     if(scene){
       oriCode = scene.rc || ''
     }
+
+    console.log(oriCode)
     wx.setStorageSync('oriCode', oriCode)
     login();
 
