@@ -115,7 +115,7 @@
 					"id": 7,
 					"name": "首页",
 					"pathName": "pages/home/index",
-					"query": "rc=2134",
+					"query": "scene=\"rc=1234\"",
 					"scene": 1048
 				},
 				{

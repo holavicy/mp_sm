@@ -56,18 +56,17 @@ Page({
     if(options.rc){
       oriCode = options.rc;
     } else {
+
       let scene = decodeURIComponent(options.scene);
+      console.log(scene)
+      console.log(JSON.stringify(scene))
+
       if(scene){
-        oriCode = scene.rc || ''
+        oriCode = scene.split('=')[1]
       }
     }
     wx.setStorageSync('oriCode', oriCode)
     login();
-    console.log(JSON.stringify(options))
-    console.log(scene)
-    console.log(JSON.stringify(scene))
-    console.log(oriCode)
-    
   },
 
   /**
