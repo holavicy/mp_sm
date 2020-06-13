@@ -9,7 +9,7 @@ Page({
     jfNum: '',
     jfList:[],
     page: 1,
-    pageSize: 5,
+    pageSize: 10,
     totalNum: -1,
     typeObj: {
       0:'注册奖励',

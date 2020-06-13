@@ -8,7 +8,7 @@ Page({
   data: {
     list:[],
     page: 1,
-    pageSize: 10,
+    pageSize: 15,
     totalNum: -1,
     listMock: [{
       "cutsomerName": "测试",
@@ -47,6 +47,22 @@ Page({
       "registerTime": "2020-06-05"
     },
     {
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },
+    {
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },{
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },{
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },{
+      "cutsomerName": "测试",
+      "registerTime": "2020-06-05"
+    },{
       "cutsomerName": "测试",
       "registerTime": "2020-06-05"
     }
