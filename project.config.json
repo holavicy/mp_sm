@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"preloadBackgroundData": false,
@@ -28,7 +28,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.11.1",
 	"appid": "wx321f53879216f7aa",
-	"projectname": "smzx_mp",
+	"projectname": "SummitService",
 	"cloudfunctionTemplateRoot": "",
 	"watchOptions": {
 		"ignore": []
@@ -115,8 +115,8 @@
 					"id": 7,
 					"name": "首页",
 					"pathName": "pages/home/index",
-					"query": "rc=0327",
-					"scene": null
+					"query": "scene=\"rc=1234\"",
+					"scene": 1048
 				},
 				{
 					"id": -1,

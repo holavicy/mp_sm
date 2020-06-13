@@ -241,6 +241,7 @@ Page({
   // }
     wx.showLoading({
       title: '海报生成中',
+      mask: true
     })
 
     var context = wx.createCanvasContext('canvas');
