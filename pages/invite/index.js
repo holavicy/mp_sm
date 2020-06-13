@@ -249,15 +249,10 @@ Page({
     var miniPath = this.getImgTempPath( currData.miniUrl );
 
     Promise.all([postPath,miniPath]).then( (res) => {
-      context.setFillStyle('#ffffff');
-      context.fillRect(0, 880, 630, 160)
       
-      context.drawImage(res[0], 0, 0, 630, 880);
-      context.drawImage(res[1], 470, 910, 100, 100);
-   
-      context.setFillStyle('#023C6A');
-      context.setFontSize(24);
-      context.fillText('微信扫描二维码查看详情', 60, 972, 264);
+      context.drawImage(res[0], 0, 0, 630, 1040);
+      context.drawImage(res[1], 470, 890, 100, 100);
+     
       context.draw(true, setTimeout(()=>{
         wx.canvasToTempFilePath({
           x:0,

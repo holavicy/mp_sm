@@ -8,12 +8,11 @@
       bindtouchend="touchend"
       bindtouchmove="touchmove"
       >
-        <image src="{{item.posterUrl}}" class="main-img"></image>
+      <view class="main-img">
+      <image src="{{item.posterUrl}}" ></image>
+        <image src="{{item.miniUrl}}" class="mini-img"></image></view>
+        
         <view class="bottom">
-          <view class="mini">
-            <view class="text">微信扫描二维码查看详情</view>
-            <image src="{{item.miniUrl}}" class="mini-img"></image>
-          </view>
           <view class="btns">
             <button class="btn left" open-type="share">分享</button>
             <view class="btn right" bindtap="saveImg" data-index="{{index}}">保存图片</view>
