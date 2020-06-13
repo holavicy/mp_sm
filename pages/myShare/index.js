@@ -7,7 +7,7 @@ Page({
    */
   data: {
     list:[],
-    page: 0,
+    page: 1,
     pageSize: 10,
     totalNum: -1,
     listMock: [{
@@ -72,7 +72,7 @@ Page({
    */
   onShow: function () {
     this.setData({
-      page: 0,
+      page: 1,
       list: []
     })
     this.getList();
@@ -108,8 +108,8 @@ Page({
     let totalNum = this.data.totalNum;
     let page = this.data.page;
     let maxPage = Math.ceil(totalNum/pageSize); 
-    console.log(page,maxPage-1)
-    if (page<maxPage-1){
+    console.log(page,maxPage)
+    if (page<maxPage){
       page++;
       this.setData({
         page:page
@@ -127,7 +127,7 @@ Page({
     let pageSize = this.data.pageSize;
 
     let data = {
-      page: page,
+      pageNum: page,
       pageSize: pageSize
     }
 

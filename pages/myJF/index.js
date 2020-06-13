@@ -8,7 +8,7 @@ Page({
   data: {
     jfNum: '',
     jfList:[],
-    page: 0,
+    page: 1,
     pageSize: 5,
     totalNum: -1,
     typeObj: {
@@ -37,7 +37,7 @@ Page({
    */
   onShow: function () {
     this.setData({
-      page: 0,
+      page: 1,
       jfList: []
     })
     this.getJFNum();
@@ -75,7 +75,7 @@ Page({
     let page = this.data.page;
     let maxPage = Math.ceil(totalNum / pageSize);
     console.log(page, maxPage - 1)
-    if (page < maxPage - 1) {
+    if (page < maxPage ) {
       page++;
       this.setData({
         page: page
@@ -107,7 +107,7 @@ Page({
       let pageSize = this.data.pageSize;
 
       let data = {
-        page: page,
+        pageNum: page,
         pageSize: pageSize
       }
       request(url, data).then((res) => {
