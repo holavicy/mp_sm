@@ -126,6 +126,7 @@ Page({
     })
 
     
+  
   },
 
   /**
@@ -146,34 +147,49 @@ Page({
     let url = '/poster/posterList';
     request(url, {}).then(res => {
       // res.data.data=[]
-      res.data.data = this.data.listMock;
+      // res.data.data = this.data.listMock;
       if(res && res.data && res.data.code == 200){
         this.setData({
           list: res.data.data,
           listLength:res.data.data.length
         })
 
-        let posterUrl = this.getImgTempPath(res.data.data[0].posterUrl);
-        let miniUrl = this.getImgTempPath(res.data.data[0].miniUrl);
-
-        Promise.all([posterUrl, miniUrl]).then((res) => {
-          wx.hideLoading();
-          this.setData({
-            tempPosterUrl: res[0],
-            tempMiniUrl: res[1]
-          })
-        })
+        
 
         const query = wx.createSelectorQuery();
+
+        let promiseList = [];
 
         this.data.list.forEach((item, index) => {
           let itemId="#item"+index;
           query.select(itemId).boundingClientRect();
+          if(index<=1){
+            let posterUrl = this.getImgTempPath(item.posterUrl);
+            let miniUrl = this.getImgTempPath(item.miniUrl);
+            promiseList.push(posterUrl);
+            promiseList.push(miniUrl);
+          }
         })
 
         query.exec(res => {
           this.setData({
             queryRes: res
+          })
+        })
+
+        var tempUrlList = [];
+        var tempUrlItem = [];
+        Promise.all(promiseList).then((res) => {
+          wx.hideLoading();
+          res.forEach((item,index) => {
+            tempUrlItem.push(item)
+            if (index%2 !== 0){
+              tempUrlList.push(tempUrlItem);
+              tempUrlItem = [];
+            }
+          })
+          this.setData({
+            tempUrlList: tempUrlList
           })
         })
       }
@@ -220,18 +236,24 @@ Page({
       left: left
     })
 
-    var currData = this.data.list[currIndex];
-
-    let posterUrl = this.getImgTempPath(currData.posterUrl);
-    let miniUrl = this.getImgTempPath(currData.miniUrl);
-
-    Promise.all([posterUrl, miniUrl]).then((res) => {
-
-      this.setData({
-        tempPosterUrl: res[0],
-        tempMiniUrl: res[1]
+    if(currIndex+1 < this.data.list.length && !this.data.tempUrlList[currIndex+1]){
+      wx.showLoading({
+        mask: true
       })
+      let nextData = this.data.list[currIndex+1];
+      let nextPosterUrl = this.getImgTempPath(nextData.posterUrl);
+      let nextPiniUrl = this.getImgTempPath(nextData.miniUrl);
+      let tempUrlList = this.data.tempUrlList;
+       Promise.all([nextPosterUrl, nextPiniUrl]).then((res) => {
+         
+        tempUrlList[currIndex+1] = [res[0], res[1]]
+        this.setData({
+          tempUrlList: tempUrlList
+        })
+        wx.hideLoading();
     })
+    }
+ 
   },
 
   //滑动事件
@@ -259,34 +281,44 @@ Page({
   },
 
   saveImg: function (e) {
+    let index = e.currentTarget.dataset.index;
+    let tempUrlItem = this.data.tempUrlList[index];
 
     wx.showLoading({
       title: '海报生成中'
     })
 
-    var context = this.data.context;
-    context.drawImage(this.data.tempPosterUrl, 0, 0, 630, 1040);
-    context.drawImage(this.data.tempMiniUrl, 470, 890, 100, 100);
-    context.draw(true, setTimeout(()=>{
-      wx.canvasToTempFilePath({
-        x:0,
-        y:0,
-        width:630,
-        height:1040,
-        destWidth: 630,
-        destHeight:1040,
-        canvasId: 'canvas',
-        success: (res) => {
-          app.saveImage(res.tempFilePath)
-        },
-        fail: ()=>{
-          wx.showToast({
-            title: '海报生成失败，请稍后再试',
-            icon: 'none'
-          })
-        }
+    if(!tempUrlItem){
+      wx.showToast({
+        title: '图片路径无效'
       })
-    },100));
+    } else {
+      var context = this.data.context;
+      context.drawImage(tempUrlItem[0], 0, 0, 630, 1040);
+      context.drawImage(tempUrlItem[1], 470, 890, 100, 100);
+      context.draw(true, setTimeout(()=>{
+        wx.canvasToTempFilePath({
+          x:0,
+          y:0,
+          width:630,
+          height:1040,
+          destWidth: 630,
+          destHeight:1040,
+          canvasId: 'canvas',
+          success: (res) => {
+            app.saveImage(res.tempFilePath)
+          },
+          fail: ()=>{
+            wx.showToast({
+              title: '海报生成失败，请稍后再试',
+              icon: 'none'
+            })
+          }
+        })
+      },100));
+    }
+
+
   },
 
   getImgTempPath: function(url){
