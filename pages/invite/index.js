@@ -96,6 +96,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getList();
   },
 
   /**
@@ -109,6 +110,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var context = wx.createCanvasContext('canvas');
+    this.setData({
+      context: context
+    })
     wx.hideHomeButton();
     login().then(() => {
       let userInfoStr = wx.getStorageSync('userInfo') || '';
@@ -120,7 +125,7 @@ Page({
       } 
     })
 
-    this.getList();
+    
   },
 
   /**
@@ -140,13 +145,23 @@ Page({
     wx.showLoading();
     let url = '/poster/posterList';
     request(url, {}).then(res => {
-      wx.hideLoading();
       // res.data.data=[]
-      // res.data.data = this.data.listMock;
+      res.data.data = this.data.listMock;
       if(res && res.data && res.data.code == 200){
         this.setData({
           list: res.data.data,
           listLength:res.data.data.length
+        })
+
+        let posterUrl = this.getImgTempPath(res.data.data[0].posterUrl);
+        let miniUrl = this.getImgTempPath(res.data.data[0].miniUrl);
+
+        Promise.all([posterUrl, miniUrl]).then((res) => {
+          wx.hideLoading();
+          this.setData({
+            tempPosterUrl: res[0],
+            tempMiniUrl: res[1]
+          })
         })
 
         const query = wx.createSelectorQuery();
@@ -204,6 +219,19 @@ Page({
     this.setData({
       left: left
     })
+
+    var currData = this.data.list[currIndex];
+
+    let posterUrl = this.getImgTempPath(currData.posterUrl);
+    let miniUrl = this.getImgTempPath(currData.miniUrl);
+
+    Promise.all([posterUrl, miniUrl]).then((res) => {
+
+      this.setData({
+        tempPosterUrl: res[0],
+        tempMiniUrl: res[1]
+      })
+    })
   },
 
   //滑动事件
@@ -231,51 +259,34 @@ Page({
   },
 
   saveImg: function (e) {
-    let index = e.currentTarget.dataset.index;
-    let currData = this.data.list[index];
-    // console.log(currData);
-  //   var currData =  {
-  //     "miniUrl":"http://119.45.33.38:8080/images/dd/9.jpg",
-  //     "posterUrl":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590253732499&di=637083a9debac748cc250ab486acf67a&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3D8d2e43377aec54e741ec1a1689389bfd%2Fd2258013632762d05b126ab6a1ec08fa503dc6d1.jpg",
-  //     "posterId":"c333f865-d33a-4531-bd2c-6e9d35d20449"
-  // }
+
     wx.showLoading({
-      title: '海报生成中',
-      mask: true
+      title: '海报生成中'
     })
 
-    var context = wx.createCanvasContext('canvas');
-
-    var postPath = this.getImgTempPath( currData.posterUrl );
-    var miniPath = this.getImgTempPath( currData.miniUrl );
-
-    Promise.all([postPath,miniPath]).then( (res) => {
-      
-      context.drawImage(res[0], 0, 0, 630, 1040);
-      context.drawImage(res[1], 470, 890, 100, 100);
-     
-      context.draw(true, setTimeout(()=>{
-        wx.canvasToTempFilePath({
-          x:0,
-          y:0,
-          width:630,
-          height:1040,
-          destWidth: 630,
-          destHeight:1040,
-          canvasId: 'canvas',
-          success: (res) => {
-            app.saveImage(res.tempFilePath)
-          },
-          fail: ()=>{
-            wx.showToast({
-              title: '海报生成失败，请稍后再试',
-              icon: 'none'
-            })
-          }
-        })
-      },100));
- 
-    })
+    var context = this.data.context;
+    context.drawImage(this.data.tempPosterUrl, 0, 0, 630, 1040);
+    context.drawImage(this.data.tempMiniUrl, 470, 890, 100, 100);
+    context.draw(true, setTimeout(()=>{
+      wx.canvasToTempFilePath({
+        x:0,
+        y:0,
+        width:630,
+        height:1040,
+        destWidth: 630,
+        destHeight:1040,
+        canvasId: 'canvas',
+        success: (res) => {
+          app.saveImage(res.tempFilePath)
+        },
+        fail: ()=>{
+          wx.showToast({
+            title: '海报生成失败，请稍后再试',
+            icon: 'none'
+          })
+        }
+      })
+    },100));
   },
 
   getImgTempPath: function(url){
