@@ -22,7 +22,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -115,7 +115,7 @@
 					"id": 7,
 					"name": "首页",
 					"pathName": "pages/home/index",
-					"query": "",
+					"query": "scene=\"rc=1234\"",
 					"scene": 1048
 				},
 				{

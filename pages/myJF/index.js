@@ -8,13 +8,15 @@ Page({
   data: {
     jfNum: '',
     jfList:[],
-    page: 0,
-    pageSize: 5,
+    page: 1,
+    pageSize: 10,
     totalNum: -1,
     typeObj: {
       0:'注册奖励',
       1: '推荐奖励',
-      2: '签到奖励'
+      2: '签到奖励',
+      3: '购买奖励',
+      4: '他人购买奖励'
     }
   },
 
@@ -37,7 +39,7 @@ Page({
    */
   onShow: function () {
     this.setData({
-      page: 0,
+      page: 1,
       jfList: []
     })
     this.getJFNum();
@@ -75,7 +77,7 @@ Page({
     let page = this.data.page;
     let maxPage = Math.ceil(totalNum / pageSize);
     console.log(page, maxPage - 1)
-    if (page < maxPage - 1) {
+    if (page < maxPage ) {
       page++;
       this.setData({
         page: page
@@ -107,7 +109,7 @@ Page({
       let pageSize = this.data.pageSize;
 
       let data = {
-        page: page,
+        pageNum: page,
         pageSize: pageSize
       }
       request(url, data).then((res) => {

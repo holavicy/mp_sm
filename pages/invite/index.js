@@ -96,6 +96,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getList();
   },
 
   /**
@@ -109,6 +110,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var context = wx.createCanvasContext('canvas');
+    this.setData({
+      context: context
+    })
     wx.hideHomeButton();
     login().then(() => {
       let userInfoStr = wx.getStorageSync('userInfo') || '';
@@ -120,7 +125,8 @@ Page({
       } 
     })
 
-    this.getList();
+    
+  
   },
 
   /**
@@ -140,7 +146,6 @@ Page({
     wx.showLoading();
     let url = '/poster/posterList';
     request(url, {}).then(res => {
-      wx.hideLoading();
       // res.data.data=[]
       // res.data.data = this.data.listMock;
       if(res && res.data && res.data.code == 200){
@@ -149,16 +154,42 @@ Page({
           listLength:res.data.data.length
         })
 
+        
+
         const query = wx.createSelectorQuery();
+
+        let promiseList = [];
 
         this.data.list.forEach((item, index) => {
           let itemId="#item"+index;
           query.select(itemId).boundingClientRect();
+          if(index<=1){
+            let posterUrl = this.getImgTempPath(item.posterUrl);
+            let miniUrl = this.getImgTempPath(item.miniUrl);
+            promiseList.push(posterUrl);
+            promiseList.push(miniUrl);
+          }
         })
 
         query.exec(res => {
           this.setData({
             queryRes: res
+          })
+        })
+
+        var tempUrlList = [];
+        var tempUrlItem = [];
+        Promise.all(promiseList).then((res) => {
+          wx.hideLoading();
+          res.forEach((item,index) => {
+            tempUrlItem.push(item)
+            if (index%2 !== 0){
+              tempUrlList.push(tempUrlItem);
+              tempUrlItem = [];
+            }
+          })
+          this.setData({
+            tempUrlList: tempUrlList
           })
         })
       }
@@ -204,6 +235,25 @@ Page({
     this.setData({
       left: left
     })
+
+    if(currIndex+1 < this.data.list.length && !this.data.tempUrlList[currIndex+1]){
+      wx.showLoading({
+        mask: true
+      })
+      let nextData = this.data.list[currIndex+1];
+      let nextPosterUrl = this.getImgTempPath(nextData.posterUrl);
+      let nextPiniUrl = this.getImgTempPath(nextData.miniUrl);
+      let tempUrlList = this.data.tempUrlList;
+       Promise.all([nextPosterUrl, nextPiniUrl]).then((res) => {
+         
+        tempUrlList[currIndex+1] = [res[0], res[1]]
+        this.setData({
+          tempUrlList: tempUrlList
+        })
+        wx.hideLoading();
+    })
+    }
+ 
   },
 
   //滑动事件
@@ -232,33 +282,21 @@ Page({
 
   saveImg: function (e) {
     let index = e.currentTarget.dataset.index;
-    let currData = this.data.list[index];
-    // console.log(currData);
-  //   var currData =  {
-  //     "miniUrl":"http://119.45.33.38:8080/images/dd/9.jpg",
-  //     "posterUrl":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590253732499&di=637083a9debac748cc250ab486acf67a&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3D8d2e43377aec54e741ec1a1689389bfd%2Fd2258013632762d05b126ab6a1ec08fa503dc6d1.jpg",
-  //     "posterId":"c333f865-d33a-4531-bd2c-6e9d35d20449"
-  // }
+    let tempUrlItem = this.data.tempUrlList[index];
+
     wx.showLoading({
       title: '海报生成中',
       mask: true
     })
 
-    var context = wx.createCanvasContext('canvas');
-
-    var postPath = this.getImgTempPath( currData.posterUrl );
-    var miniPath = this.getImgTempPath( currData.miniUrl );
-
-    Promise.all([postPath,miniPath]).then( (res) => {
-      context.setFillStyle('#ffffff');
-      context.fillRect(0, 880, 630, 160)
-      
-      context.drawImage(res[0], 0, 0, 630, 880);
-      context.drawImage(res[1], 470, 910, 100, 100);
-   
-      context.setFillStyle('#023C6A');
-      context.setFontSize(24);
-      context.fillText('微信扫描二维码查看详情', 60, 972, 264);
+    if(!tempUrlItem){
+      wx.showToast({
+        title: '图片路径无效'
+      })
+    } else {
+      var context = this.data.context;
+      context.drawImage(tempUrlItem[0], 0, 0, 630, 1040);
+      context.drawImage(tempUrlItem[1], 470, 890, 100, 100);
       context.draw(true, setTimeout(()=>{
         wx.canvasToTempFilePath({
           x:0,
@@ -279,8 +317,9 @@ Page({
           }
         })
       },100));
- 
-    })
+    }
+
+
   },
 
   getImgTempPath: function(url){
