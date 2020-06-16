@@ -1,5 +1,5 @@
 const baseUrl = {
-  test: 'https://pintu.aibal.top',
+  test: 'https://mini.sumstudent.top',
   online: ''
 }
 
