@@ -10,7 +10,7 @@ Page({
   data: {
     isX: app.globalData.isIphoneX,
     str:'', //搜索输入的内容
-    page: 0,
+    page: 1,
     pageSize: 5,
     totalNum: -1,
     goodsList:[],
@@ -67,19 +67,16 @@ Page({
     }
     wx.setStorageSync('oriCode', oriCode)
     login();
+    this.ifShowShopCart();
+    this.getGoodsList();
+ 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.ifShowShopCart();
-    this.getGoodsList();
-    this.setData({
-      page: 0,
-      goodsList: [],
-      
-    })
+  
   },
 
   onPageScroll({scrollTop}){
@@ -105,7 +102,7 @@ Page({
     let totalNum = this.data.totalNum;
     let page = this.data.page;
     let maxPage = Math.ceil(totalNum/pageSize); 
-    if (page<maxPage-1){
+    if (page<maxPage){
       page++;
       this.setData({
         page:page
@@ -126,8 +123,9 @@ Page({
     wx.showLoading();
     let page = this.data.page;
     let pageSize = this.data.pageSize;
+    let str = this.data.str;
 
-    let url = '/article/list?count='+pageSize+'&start='+page
+    let url = '/article/homeList?pageSize='+pageSize+'&pageNum='+page+'&title='+str
 
     request(url, {}, 'POST').then(res => {
       wx.hideLoading()
@@ -137,10 +135,10 @@ Page({
 
       if(res && res.data && res.data.code == 200){
         let goodsList = this.data.goodsList;
-        goodsList = goodsList.concat(res.data.data.items);
+        goodsList = goodsList.concat(res.data.data.rows);
         this.setData({
           goodsList:goodsList,
-          totalNum:res.data.data.totalCount
+          totalNum:res.data.data.total
         })
       }
     }) 
@@ -164,7 +162,7 @@ Page({
     let value = e.detail.value;
     this.setData({
       str: value,
-      page:0,
+      page:1,
       goodsList:[]
     })
     this.getGoodsList();
@@ -174,7 +172,7 @@ Page({
     let goodsList = this.data.goodsList;
     let index = e.currentTarget.dataset.index;
 
-    let url = goodsList[index].content.articles[0].url;
+    let url = goodsList[index].articleUrl;
 
     url = encodeURIComponent(url);
     wx.navigateTo({

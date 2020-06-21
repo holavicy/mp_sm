@@ -12,24 +12,24 @@
   }
 </wxs>
 <view class="home">
-  <!-- <view class="search-wrapper">
+  <view class="search-wrapper">
     <image src="../../images/search.png"></image>
     <input value="{{str}}" placeholder="请输入产品名称" 
     bindblur="bindblurStr"></input>
-  </view> -->
+  </view>
 
   <view class="goods-list {{isX?'iphonex':''}}">
     <view class="goods-item" wx:for="{{goodsList}}" wx:key="index"
           data-index="{{index}}"
           bindtap="toProduct">
       <view class="image">
-        <image src="{{item.content.articles[0].thumbUrl}}"></image>
+        <image src="{{item.thumbUrl}}"></image>
       </view>
       <view class="name">
-        {{item.content.articles[0].title}}
+        {{item.title}}
       </view>
       <view class="time">
-        发布时间：{{foo.fomatTime(item.updateTime)}}
+        发布时间：{{foo.fomatTime(item.publishTime)}}
       </view>
     </view>
     <image src="../../images/empty.png" class="empty" wx:if="{{totalNum == 0}}"></image>
