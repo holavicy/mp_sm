@@ -55,7 +55,7 @@
       <view class="left">
         <image src="../../images/kf.png"></image>
       </view>
-      <button class="right contact" type="default" open-type="contact">
+      <button class="right contact" type="default" open-type="contact" session-from='{"nickName":"{{userInfo.nickName}}","avatarUrl":"{{userInfo.avatar}}"}'>
         我的客服
         <view class="arrow-right-nav"></view>
       </button>
